@@ -1,0 +1,49 @@
+h3 {
+  background-color: #5b73de;
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+
+}
+
+#submit {
+  background-color:#5b73de;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.jumbotron {
+  background-color: darkgreen;
+  color: lightgray;
+  text-align: center;
+  width: 100%
+}
+
+#table {
+  border: 3px solid#5b73de;
+  margin-bottom: 10px;
+  border-radius: 7px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+#form {
+  border: 3px solid#5b73de;
+  margin-bottom: 10px;
+  border-radius: 7px;
+}
+thead {
+  width: 100%;
+}
+#sidebar {
+  background-color: #5b73de;
+  float: left;
+  height: 100%;
+  width: 20%;
+}
