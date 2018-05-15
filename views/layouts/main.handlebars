@@ -5,77 +5,18 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
       crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
     <title> Chupper Time!</title>
-    <!--<script src="https://code.jquery.com/jquery.js"></script>-->
-    <!-- <script src="/assets/js/recipes.js"></script>-->
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="/assets/js/recipes.js"></script>
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
-    <div class="container">
-      <div class="jumbotron">
-        <h1>Chupper Time</h1>
-      </div>
-    </div>
-    <div>
-      <form action="/action_page.php">
-        Username:
-        <input type="text" name="username" value="Mickey"> Password:
-        <input type="text" name="password" value="Mouse">
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-    <div class="wrapper">
-
-      <nav id="sidebar">
-        <!-- Sidebar Header -->
-        <div class="sidebar-header">
-          <h3>Collapsible Sidebar</div>
-    </div>
-
-    <!-- Sidebar Links -->
-    <ul class="list-unstyled components">
-      <li class="active">
-        <a href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <!-- Link with dropdown items -->
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li>
-            <a href="#">Page</a>
-          </li>
-          <li>
-            <a href="#">Page</a>
-          </li>
-          <li>
-            <a href="#">Page</a>
-          </li>
-        </ul>
-        <li>
-          <a href="#">Portfolio</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-    </ul>
-    </nav>
-
-    <div id="content">
-      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-        <i class="glyphicon glyphicon-align-left"></i>
-        Toggle Sidebar
-      </button>
-      <div>
-    <div id="handlebars">
-      {{{ body }}}
-    </div>
-
+    {{{ body }}}
   </body>
-
-</html>
-
 </html>
