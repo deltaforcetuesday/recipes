@@ -1,6 +1,6 @@
-INSERT INTO chefs (chefId, name, email, password,recipeCount) VALUES (1, "sahar",  "sahar@gmail.com","aaaa", 2);
-INSERT INTO chefs (chefId, name, email, password,recipeCount) VALUES (2, "ali", "ali@gmail.com","3333", 1);
-INSERT INTO chefs (chefId, name, email, password,recipeCount) VALUES (3, "Susan",  "susan@gmail.com","1515", 1);
+INSERT INTO chefs (name, email, password,recipeCount) VALUES ("sahar",  "sahar@gmail.com","aaaa", 2);
+INSERT INTO chefs (name, email, password,recipeCount) VALUES ("ali", "ali@gmail.com","3333", 1);
+INSERT INTO chefs (name, email, password,recipeCount) VALUES ("Susan",  "susan@gmail.com","1515", 1);
 
 
 INSERT INTO recipes (chefId, title, instructions, imageLink, prepTime, method) VALUES (1, "chicken currey",  "In a large pot fry the onions till add the chicken potato and curry powder and cook for five minutes add the stoch and let it simmer for 30 minutes", "/images/chickenPotatoCurry.jpg", 15, "stove");

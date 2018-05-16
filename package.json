@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/deltaforcetuesday/recipes#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "mysql": "^2.15.0"
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.7"
   }
 }

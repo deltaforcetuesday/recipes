@@ -1,45 +1,55 @@
-var orm = require("../config/orm.js");
-
-//sets all queries to the recipe table
 
 
-var recipe = {
-    findAll: function (orderByCol, cb) {
-        orm.findAll("recipes", orderByCol, function (res) {
-            cb(res);
+module.exports = function(sequelize, DataTypes) {
+    var Recipe = sequelize.define("Recipe", {
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1]
+        }
+      },
+    /*  chefId: {
+          type: DataTypes.INTEGER,
+          references: {
+              model: "Chef",
+              key: 'id'
+          }
+      }, */
+      instructions: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        len: [1]
+      },
+      imageLink: {
+          type: DataTypes.STRING,
+          allowNull: true
+      },
+      prepTime: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          validate: {
+              min: 0,
+              max: 300
+          }
+      },
+      method: {
+          type: DataTypes.STRING,
+          allowNull: true
+      }
+    });
+
+    Recipe.associate = function(models) {
+        Recipe.belongsTo(models.Chef, {
+          foreignKey: {
+            allowNull: false
+          }
         });
-    },
-
-    findByMethod: function (method, cb) {
-        orm.findSome("recipes", method, function (res) {
-            cb(res);
-        });
-    },
-
-    findOne: function (condition, cb) {
-        orm.findOne("recipes", condition, function (res) {
-            cb(res);
-        });
-    },
-
-    create: function (cols, vals, cb) {
-        orm.create("recipes", cols, vals, function (res) {
-            cb(res);
-          });
-    },
-
-
-    update: function (strColVal, condition, cb) {
-        orm.update("recipes", strColVal, condition, function(res) {
-            cb(res);
-        });
-    },
-    
-    delete: function(condition, cb) {
-        orm.delete("recipes", condition, function(res) {
-            cb(res);
-        });
-    }
-};
-
-module.exports = recipe;
+       /* Recipe.belongsToMany(models.Ingredient, {
+          through: RecipeIngredient
+        }) */
+      };
+  
+    return Recipe;
+  };
+  
