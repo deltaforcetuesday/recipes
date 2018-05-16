@@ -10,8 +10,8 @@ var recipe = {
         });
     },
 
-    findSome: function (condition, orderByCol, cb) {
-        orm.findSome("recipes", orderByCol, function (res) {
+    findByMethod: function (method, cb) {
+        orm.findSome("recipes", method, function (res) {
             cb(res);
         });
     },

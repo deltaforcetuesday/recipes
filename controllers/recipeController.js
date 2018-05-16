@@ -11,9 +11,9 @@ router.get("/", function (req, res) {
   });
 });
 
-router.get("/:condition", function (req, res) {
+router.get("/method/:condition", function (req, res) {
   var condition = req.params.condition;
-  chef.findAll(condition, function (result) {
+  recipe.findAll(condition, function (result) {
     res.render("index", {
         allRecipes: data
       });
@@ -21,7 +21,7 @@ router.get("/:condition", function (req, res) {
 });
 
 
-router.get("/:id", function (req, res) {
+router.get("/recipe/:id", function (req, res) {
   recipe.findOne(req.params.id, function (result) {
     res.render("index", {
         recipe: data

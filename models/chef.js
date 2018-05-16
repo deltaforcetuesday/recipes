@@ -10,11 +10,6 @@ var chef = {
         });
     },
 
-    findSome: function (condition, orderByCol, cb) {
-        orm.findSome("chefs", condition, orderByCol, function (res) {
-            cb(res);
-        });
-    },
 
     findOne: function (condition, cb) {
         orm.findOne("chefs", condition, function (res) {

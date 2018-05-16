@@ -12,8 +12,8 @@ var orm = {
         });
     },
 
-    findSome: function (table, condition, orderByCol, cb) {
-        var queryString = "SELECT * FROM ?? WHERE " + condition + " ORDER BY " + orderByCol;
+    findByMethod: function (table, method, cb) {
+        var queryString = "SELECT * FROM ?? WHERE method =" + method;
         connection.query(queryString, [table], function (err, result) {
             if (err) {
                 throw err;

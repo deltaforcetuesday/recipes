@@ -11,6 +11,15 @@
 <div id="content">
   <div class="view" id="chuppertime">
     <h2>Words</h2>
+
+    {{#each allRecipes}}
+    <h4>{{title}}</h4>
+    <p>{{ingredients}}</p>
+    <p>{{instructions}}</p>
+    <p>{{prepTime}}</p>
+    <p>{{method}}</p>
+
+    {{/each}}
   </div>
   <div class="view hide" id="browserecipe">
     <h2>Stuff</h2>
