@@ -6,6 +6,10 @@ h3 {
 
 }
 
+body {
+  border: 2px red solid;
+}
+
 #submit {
   background-color:#5b73de;
   margin-bottom: 10px;

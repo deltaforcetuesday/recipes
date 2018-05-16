@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.use(express.static("assets"));
 
 app.engine("handlebars", exphbs({
   defaultLayout: "main"
