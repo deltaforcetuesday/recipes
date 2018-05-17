@@ -45,12 +45,12 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
-        Recipe.hasMany(models.Ingredient, {
-          onDelete: "cascade"
-        });
-       /* Recipe.belongsToMany(models.Ingredient, {
-          through: RecipeIngredient
-        }) */
+        Recipe.belongsToMany(models.Ingredient, {
+          through: models.RecipeIngredient,
+          foreignKey: 'recipeId',
+          otherKey: 'ingredientId',
+          constraints: false
+        }) 
       };
   
     return Recipe;
