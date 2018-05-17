@@ -8,7 +8,7 @@ module.exports = function(app) {
   app.get("/api/recipes", function(req, res) {
 
     db.Recipe.findAll({
-      include: [db.Chef],
+      include: [db.Chef, db.Ingredient],
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });
@@ -33,7 +33,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [db.Chef]
+      include: [db.Chef, db.Ingredient]
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });

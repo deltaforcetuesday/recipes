@@ -45,6 +45,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
+        Recipe.hasMany(models.Ingredient, {
+          onDelete: "cascade"
+        });
        /* Recipe.belongsToMany(models.Ingredient, {
           through: RecipeIngredient
         }) */
