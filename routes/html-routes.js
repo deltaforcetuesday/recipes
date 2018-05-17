@@ -13,7 +13,7 @@ module.exports = function(app) {
 
 
   app.get("/login", function(req, res) {
-    res.sendFile(path.join(__dirname, "../html/login.html"));
+    res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
 
@@ -23,10 +23,10 @@ module.exports = function(app) {
 
 
   app.get("/search", function(req, res) {
-    res.sendFile(path.join(__dirname, "../html/search.html"));
+    res.sendFile(path.join(__dirname, "../public/search.html"));
   });
 
   app.get("/share", function(req, res) {
-    res.sendFile(path.join(__dirname, "../html/share.html"));
+    res.sendFile(path.join(__dirname, "../public/share.html"));
   });
 };
