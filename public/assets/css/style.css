@@ -1,53 +1,83 @@
-h3 {
-  background-color: #5b73de;
-  padding: 10px;
-  font-size: 15px;
-  color: white;
-
-}
-
 body {
-  border: 2px red solid;
+  width: auto;
+  height: auto;
+  background-color: rosybrown;
 }
 
-#submit {
-  background-color:#5b73de;
-  margin-bottom: 10px;
-  color: white;
-}
-
-.jumbotron {
+#head {
   background-color: darkgreen;
   color: lightgray;
   text-align: center;
-  width: 100%
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  height: 10%;
 }
 
-#table {
-  border: 3px solid#5b73de;
-  margin-bottom: 10px;
-  border-radius: 7px;
+h3 {
+  font-size: 20px;
+  font-family: 'Yellowtail', cursive;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 40px;
+
+  -webkit-text-fill-color:  rgb(18, 104, 145); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+
+
+  font-family: 'Yellowtail', cursive;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
+  -webkit-text-fill-color: #e05757;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(122, 122, 122);
+  font-family: 'Yellowtail', cursive;
 }
 
-#form {
-  border: 3px solid#5b73de;
-  margin-bottom: 10px;
-  border-radius: 7px;
-}
-thead {
+#navbar  {
+  background-color: greenyellow;
+  font-family: 'Yellowtail', cursive;
+  font-size: 20px;
+  height: 10%;
   width: 100%;
+
 }
-#homeSubmenu {
-  background-color: #5b73de;
-  float: left;
-  height: 100%;
-  width: 20%;
+
+#content {
+
+  height: 80%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: lavender;
+
 }
+
+.hide {
+  display: none;
+}
+
+.nav-item {
+  width: 300px;
+
+}
+
+#quicksearch {
+  background-color: greenyellow;
+  font-family: 'Yellowtail', cursive;
+  color: #4285F4;
+}
+
+img
+ {
+    width: auto;/*adjust this value to your needs*/
+    max-width: 25%;
+    height: auto;
+    max-height: 25%;
+    display: inline-block;
+
+ }
