@@ -20,6 +20,7 @@ INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (2, 1);
 INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (3, 1);
 INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (4, 1);
 INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (5, 1);
+INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (6, 1);
 INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (6, 2);
 INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (7, 2);
 INSERT INTO recipeingredients (ingredientId, recipeId) VALUES (8, 2);
