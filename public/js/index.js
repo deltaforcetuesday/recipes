@@ -1,13 +1,6 @@
 $(document).ready(function () {
 
-    var mainContent = $("#target");
-    var recipes;
-
-
-    $("#submitBtn").on("click", function(){
-        var input = $("#searchInput").val().trim();
-        
-    });
+    var targetContent = $("#target");
 
     getRecipes();
     /*
@@ -41,68 +34,62 @@ $(document).ready(function () {
     } */
 
 
-
     function getRecipes() {
         $.get("/api/recipes", function (data) {
-            console.log("Posts", data);
+            console.log("Recipes retrieved: ", data);
             recipes = data;
-            if (!recipes || !recipes.length) {
+            if (!data || !data.length) {
                 displayEmpty();
             } else {
-                initializeRows();
+                displayRecipes(data);
             }
         });
     };
 
     function displayEmpty () {
-       mainContent.empty();
+       targetContent.empty();
         var messageH2 = $("<h2>");
         messageH2.html("No recipes yet");
-        mainContent.append(messageH2);
+        targetContent.append(messageH2);
     }
 
 
-    function initializeRows() {
-       mainContent.empty();
-        var postsToAdd = [];
-        for (var i = 0; i < recipes.length; i++) {
-          postsToAdd.push(createNewRow(recipes[i]));
-        }
-        mainContent.append(postsToAdd);
-      };
+      function displayRecipes(retrievedRecipes) {
+        targetContent.empty();
+            retrievedRecipes.forEach(function(recipe) {
+                var recipeCard = createRow(recipe);
+                targetContent.append(recipeCard);
+            });
+       };
 
-      function createNewRow(arecipe) {
-        var newCard = $("<div>");
-        newCard.data("recipe", arecipe);
-        newCard.addClass("card");
-        var newCardHeader = $("<div>");
-        newCardHeader.addClass("card-header");
-        var newCardTitle = $("<a href='/api/recipes/" + arecipe.id + "'>" + arecipe.title + "</a>");
-        
-        //newCardTitle.text(arecipe.title + " ");
-        var newCardAuthor = $("<h5>");
-        newCardAuthor.text("Written by: " + arecipe.Chef.name);
-        newCardAuthor.css({
+      function createRow(recipe) {
+        var card = $("<div>");
+        card.data("recipe", recipe);
+        card.addClass("card");
+        var cardHeader = $("<div>");
+        cardHeader.addClass("card-header");
+        var cardTitle = $("<a href='/api/recipes/" + recipe.id + "'>" + recipe.title + "</a>");
+        var cardAuthor = $("<h5>");
+        cardAuthor.text("Written by: " + recipe.Chef.name);
+        cardAuthor.css({
           float: "right",
           color: "blue",
           "margin-top":
           "-10px"
         });
 
-        var newCardBody = $("<div>");
-        newCardBody.addClass("card-body");
-        var newCardP = $("<p>");
-        newCardP.text("Prep Time: " + arecipe.prepTime + " minutes  Method: " +  arecipe.method);
-        newCardHeader.append(newCardTitle);
-        newCardHeader.append(newCardAuthor);
-        newCardBody.append(newCardP);
+        var cardBody = $("<div>");
+        cardBody.addClass("card-body");
+        var cardP = $("<p>");
+        cardP.text("Prep Time: " + recipe.prepTime + " minutes  Method: " +  recipe.method);
+        cardHeader.append(cardTitle);
+        cardHeader.append(cardAuthor);
+        cardBody.append(cardP);
        
  
-        newCard.append(newCardHeader);
-        newCard.append(newCardBody);
-
-    
-        return newCard;
+        card.append(cardHeader);
+        card.append(cardBody);
+        return card;
       };
 
 
