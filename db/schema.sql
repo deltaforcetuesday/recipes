@@ -3,7 +3,7 @@ USE chefs_db;
 
 CREATE TABLE chefs
 (
-	chefId int(10) NOT NULL ,
+	chefId int(10) NOT NULL auto_increment,
 	name varchar(255) NOT NULL,
 	password varchar(50),
     email varchar(300),
