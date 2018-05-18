@@ -3,12 +3,42 @@ $(document).ready(function () {
     var mainContent = $("#main-content");
     var recipes;
 
-    getRecipes();
 
     $("#submitBtn").on("click", function(){
         var input = $("#searchInput").val().trim();
         
     });
+
+    getRecipes();
+
+    var url = window.location.search;
+    var authorId;
+    if (url.indexOf("?author_id=") !== -1) {
+      authorId = url.split("=")[1];
+      getPosts(authorId);
+    }
+    // If there's no authorId we just get all posts as usual
+    else {
+      getPosts();
+    }
+
+    function getPosts(author) {
+        authorId = author || "";
+        if (authorId) {
+          authorId = "/?author_id=" + authorId;
+        }
+        $.get("/api/posts" + authorId, function(data) {
+          console.log("Posts", data);
+          posts = data;
+          if (!posts || !posts.length) {
+            displayEmpty(author);
+          }
+          else {
+            initializeRows();
+          }
+        });
+      }
+
 
 
     function getRecipes() {
@@ -42,6 +72,7 @@ $(document).ready(function () {
 
       function createNewRow(arecipe) {
         var newCard = $("<div>");
+        newCard.data("recipe", arecipe);
         newCard.addClass("card");
         var newCardHeader = $("<div>");
         newCardHeader.addClass("card-header");
@@ -64,6 +95,7 @@ $(document).ready(function () {
         newCardHeader.append(newCardTitle);
         newCardHeader.append(newCardAuthor);
         newCardBody.append(newCardP);
+       
  
         newCard.append(newCardHeader);
         newCard.append(newCardBody);
