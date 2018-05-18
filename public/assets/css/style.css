@@ -57,6 +57,13 @@ h1 {
 
 }
 
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: lavender;
+}
+
 .hide {
   display: none;
 }
