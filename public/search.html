@@ -1,184 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-      crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
-    <title> Chupper Time!</title>
-    <script src="https://code.jquery.com/jquery.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+  <title> Chupper Time!</title>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/search.js"></script>
+</head>
 
-      <body>
-        <div id="head">
-          <h1>chupper time</h1>
-        </div>
+<body>
+  <div id="head">
+    <h1>chupper time</h1>
+  </div>
 
-        <nav class="navbar navbar-primary" id="navbar">
-          <div class="container-fluid" class="navbar-header">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              <li class="nav-item">
-                <a class="navbar-link" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/share">Share a Recipe</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/search">Search Recipes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login to Your Account</a>
-              </li>
-              <li class="nav-item">
-                <a class="quicksearch">
-                  <form>
-                    <fieldset>
-                      <select id="quicksearch" name="quicksearch">
-                        <option value="---">Quick Search</option>
-                        <option value="short">0-15 Minutes Prep Time</option>
-                        <option value="medium">15-30 Minutes Prep Time</option>
-                        <option value="average">30-45 Minutes Prep Time</option>
-                        <option value="long">45-60 Minutes Prep Time</option>
-                        <option value="forever">60+ Minutes Prep Time</option>
-                      </select>
-                      <input type="submit" id="quicksearch">
-                    </fieldset>
-                  </form>
-                </a>
-              </li>
-            </ul>
+  <nav class="navbar navbar-primary" id="navbar">
+    <div class="container-fluid" class="navbar-header">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="navbar-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/share">Share a Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search">Search Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login to Your Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="quicksearch">
+            <form>
+              <fieldset>
+                <select id="quicksearch" name="quicksearch">
+                  <option value="---">Quick Search</option>
+                  <option value="short">0-15 Minutes Prep Time</option>
+                  <option value="medium">15-30 Minutes Prep Time</option>
+                  <option value="average">30-45 Minutes Prep Time</option>
+                  <option value="long">45-60 Minutes Prep Time</option>
+                  <option value="forever">60+ Minutes Prep Time</option>
+                </select>
+                <input type="submit" id="quicksearch">
+              </fieldset>
+            </form>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container" id="main-content">
+    <h1>Search Recipes</h1>
+    <h2>You can search our recipe database based on the paramaters listed below. You can search using as many or as few of the
+      parameters as you'd like.</h2>
+
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <form>
+          <div class="form-group">
+            <label for="chef-name-input">Chef's Name</label>
+            <input class="form-control" id="chef-name-input" type="text">
           </div>
-        </nav>
-    <div class="container" id="main-content">
-      <h1>Search Recipes</h1>
-      <h2>You can search our recipe database based on the paramaters listed below. You can search using as many or as few of
-        the parameters as you'd like.</h2>
-
-
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-
-            <!-- Add you band Info  -->
-            <div class="panel panel-primary">
-              <div class="panel-body">
-
-                <!-- Entry Form -->
-                <form>
-                  <div class="form-group">
-                    <label for="band-name-input">Chef's Name</label>
-                    <input class="form-control" id="chef-name-input" type="text">
-                  </div>
-                  <div class="form-group">
-                    <label for="location-input">Recipe Name</label>
-                    <input class="form-control" id="recipe-name-input" type="text">
-                  </div>
-                  <div class="form-group">Cooking Method</label>
-                    <input class="form-control" id="method-input" type="text">
-                  </div>
-                  <div class="form-group">
-                    <label for="time-input">Prep Time</label>
-                    <input class="form-control" id="time-input" type="text">
-                  </div>
-                  <div class="form-group">
-                    <label for="description-input">Ingredient #1</label>
-                    <input class="form-control" id="ingredient-input" type="text">
-                  </div>
-                  <select name="amount">
-                    <option value="eigth">1/8</option>
-                    <option value="quarter">1/4</option>
-                    <option value="half">1/2</option>
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                  </select>
-                  <select name="measurements">
-                    <option value="teaspoon">Teaspoon</option>
-                    <option value="tablespoon">Tablespoon</option>
-                    <option value="cup">Cup</option>
-                    <option value="pint">Pint</option>
-                    <option value="pound">Pound</option>
-                  </select>
-                  <div class="form-group">
-                    <label for="description-input">Ingredient #2</label>
-                    <input class="form-control" id="ingredient-input" type="text">
-                  </div>
-                  <select name="amount">
-                    <option value="eigth">1/8</option>
-                    <option value="quarter">1/4</option>
-                    <option value="half">1/2</option>
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                  </select>
-                  <select name="measurements">
-                    <option value="teaspoon">Teaspoon</option>
-                    <option value="tablespoon">Tablespoon</option>
-                    <option value="cup">Cup</option>
-                    <option value="pint">Pint</option>
-                    <option value="pound">Pound</option>
-                  </select>
-                  <div class="form-group">
-                    <label for="description-input">Ingredient #3</label>
-                    <input class="form-control" id="ingredient-input" type="text">
-                  </div>
-                  <select name="amount">
-                    <option value="eigth">1/8</option>
-                    <option value="quarter">1/4</option>
-                    <option value="half">1/2</option>
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                  </select>
-                  <select name="measurements">
-                    <option value="teaspoon">Teaspoon</option>
-                    <option value="tablespoon">Tablespoon</option>
-                    <option value="cup">Cup</option>
-                    <option value="pint">Pint</option>
-                    <option value="pound">Pound</option>
-                  </select>
-                  <div class="form-group">
-                    <label for="description-input">Ingredient #4</label>
-                    <input class="form-control" id="ingredient-input" type="text">
-                  </div>
-                  <select name="amount">
-                    <option value="eigth">1/8</option>
-                    <option value="quarter">1/4</option>
-                    <option value="half">1/2</option>
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                  </select>
-                  <select name="measurements">
-                    <option value="teaspoon">Teaspoon</option>
-                    <option value="tablespoon">Tablespoon</option>
-                    <option value="cup">Cup</option>
-                    <option value="pint">Pint</option>
-                    <option value="pound">Pound</option>
-                  </select>
-                  <div class="form-group">
-                    <label for="description-input">Ingredient #5</label>
-                    <input class="form-control" id="ingredient-input" type="text">
-                  </div>
-                  <select name="amount">
-                    <option value="eigth">1/8</option>
-                    <option value="quarter">1/4</option>
-                    <option value="half">1/2</option>
-                    <option value="one">1</option>
-                    <option value="two">2</option>
-                  </select>
-                  <select name="measurements">
-                    <option value="teaspoon">Teaspoon</option>
-                    <option value="tablespoon">Tablespoon</option>
-                    <option value="cup">Cup</option>
-                    <option value="pint">Pint</option>
-                    <option value="pound">Pound</option>
-                  </select>
-                </form>
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="recipe-input">Recipe Name</label>
+            <input class="form-control" id="recipe-name-input" type="text">
           </div>
-        </div>
+          <div class="form-group">
+            <label for="method-input">Cooking Method</label>
+            <input class="form-control" id="method-input" type="text">
+          </div>
+          <div class="form-group">
+            <label for="time-input">Prep Time (minutes)</label>
+            <input class="form-control" id="time-input" type="number">
+          </div>
+
+          <div class="form-group">
+            <label for="ingredient-input">Ingredients</label>
+            <input class="form-control" id="ingredient-input" type="text">
+          </div>
+        </form>
+        <btn class="btn btn-primary" id="advSearchBtn">Search</btn>
+
       </div>
     </div>
-  </body>
+
+  </div>
+</body>
 
 </html>
+
+
+<!--
+          <div class="form-group">
+            <label for="description-input">Ingredient #1</label>
+            <input class="form-control" id="ingredient-input" type="text">
+          </div>
+          <select name="amount">
+            <option value="eigth">1/8</option>
+            <option value="quarter">1/4</option>
+            <option value="half">1/2</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+          </select>
+          <select name="measurements">
+            <option value="teaspoon">Teaspoon</option>
+            <option value="tablespoon">Tablespoon</option>
+            <option value="cup">Cup</option>
+            <option value="pint">Pint</option>
+            <option value="pound">Pound</option>
+          </select>
+          <div class="form-group">
+            <label for="description-input">Ingredient #2</label>
+            <input class="form-control" id="ingredient-input" type="text">
+          </div>
+          <select name="amount">
+            <option value="eigth">1/8</option>
+            <option value="quarter">1/4</option>
+            <option value="half">1/2</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+          </select>
+          <select name="measurements">
+            <option value="teaspoon">Teaspoon</option>
+            <option value="tablespoon">Tablespoon</option>
+            <option value="cup">Cup</option>
+            <option value="pint">Pint</option>
+            <option value="pound">Pound</option>
+          </select>
+          <div class="form-group">
+            <label for="description-input">Ingredient #3</label>
+            <input class="form-control" id="ingredient-input" type="text">
+          </div>
+          <select name="amount">
+            <option value="eigth">1/8</option>
+            <option value="quarter">1/4</option>
+            <option value="half">1/2</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+          </select>
+          <select name="measurements">
+            <option value="teaspoon">Teaspoon</option>
+            <option value="tablespoon">Tablespoon</option>
+            <option value="cup">Cup</option>
+            <option value="pint">Pint</option>
+            <option value="pound">Pound</option>
+          </select>
+          <div class="form-group">
+            <label for="description-input">Ingredient #4</label>
+            <input class="form-control" id="ingredient-input" type="text">
+          </div>
+          <select name="amount">
+            <option value="eigth">1/8</option>
+            <option value="quarter">1/4</option>
+            <option value="half">1/2</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+          </select>
+          <select name="measurements">
+            <option value="teaspoon">Teaspoon</option>
+            <option value="tablespoon">Tablespoon</option>
+            <option value="cup">Cup</option>
+            <option value="pint">Pint</option>
+            <option value="pound">Pound</option>
+          </select>
+          <div class="form-group">
+            <label for="description-input">Ingredient #5</label>
+            <input class="form-control" id="ingredient-input" type="text">
+          </div>
+          <select name="amount">
+            <option value="eigth">1/8</option>
+            <option value="quarter">1/4</option>
+            <option value="half">1/2</option>
+            <option value="one">1</option>
+            <option value="two">2</option>
+          </select>
+          <select name="measurements">
+            <option value="teaspoon">Teaspoon</option>
+            <option value="tablespoon">Tablespoon</option>
+            <option value="cup">Cup</option>
+            <option value="pint">Pint</option>
+            <option value="pound">Pound</option>
+          </select>
+        </form> 
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+-->
