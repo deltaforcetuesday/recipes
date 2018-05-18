@@ -1,18 +1,23 @@
-
 var db = require("../models");
 
 
-module.exports = function(app) {
+module.exports = function (app) {
 
 
-  app.get("/api/recipes", function(req, res) {
-
+  app.get("/api/recipes", function (req, res) {
+    var query = {};
+    if (req.query.id) {
+      query.id = req.query.id
+    }
     db.Recipe.findAll({
+      where: query,
       include: [db.Chef, db.Ingredient],
-    }).then(function(dbRecipe) {
+    }).then(function (dbRecipe) {
       res.json(dbRecipe);
     });
   });
+
+
 
   /*
   app.get("/api/ingredients/:recipid", function(req, res) {
@@ -24,10 +29,26 @@ module.exports = function(app) {
       }).then(function(dbIngred){
           res.json(dbIngred);
       })
-  }) */
+  })  
 
 
   app.get("/api/recipes/:id", function(req, res) {
+    // var query = {};
+    // if (req.query.author_id) {
+    //   query.AuthorId = req.query.author_id;
+    // }
+    db.Recipe.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Chef, db.Ingredient]
+    }).then(function(dbRecipe) {
+      res.json(dbRecipe);
+    });
+  });  
+
+/*
+  app.get("/recipe", function(req, res) {
 
     db.Recipe.findOne({
       where: {
@@ -37,22 +58,22 @@ module.exports = function(app) {
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });
-  });
+  }); */
 
 
-  app.post("/api/recipes", function(req, res) {
-    db.Recipe.create(req.body).then(function(dbRecipe) {
+  app.post("/api/recipes", function (req, res) {
+    db.Recipe.create(req.body).then(function (dbRecipe) {
       res.json(dbRecipe);
     });
   });
 
- 
-  app.delete("/api/recipes/:id", function(req, res) {
+
+  app.delete("/api/recipes/:id", function (req, res) {
     db.Recipe.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbRecipe) {
+    }).then(function (dbRecipe) {
       res.json(dbRecipe);
     });
   });
