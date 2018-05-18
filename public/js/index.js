@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    var mainContent = $("#main-content");
+    var mainContent = $("#target");
     var recipes;
 
 
