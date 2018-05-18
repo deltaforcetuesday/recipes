@@ -10,6 +10,7 @@ $(document).ready(function () {
     });
 
     getRecipes();
+    /*
 
     var url = window.location.search;
     var authorId;
@@ -37,7 +38,7 @@ $(document).ready(function () {
             initializeRows();
           }
         });
-      }
+    } */
 
 
 
