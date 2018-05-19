@@ -65,33 +65,34 @@ $(document).ready(function () {
         method: method.val().trim(),
         prepTime: prepTime.val().trim()
     }); 
+    function addIngredienttoDb(data) {
+      $.post("/api/ingredients", data)
+      .then(console.log(data))
+    }
 
     // A function for creating a recipe in the database then console logging the info 
     function addRecipetoDb(submitData) {
       $.post("/api/recipes", submitData)
       .then(function(res){
         console.log(res);
-        var allIng = [];
-    for (let i = 1; i < ingCount; i++) { 
-      var newIngredient = {
-        ingredient: $("#ingredient-"+i).val().trim(),
-        amount: $("#amount-"+i).val().trim(),
-        measurement:$("#measurement-"+i).val().trim(),
-         
-      }
-      
-      addIngredienttoDb(newIngredient);
-      allIng.push(newIngredient);
-    }
-    function addIngredienttoDb(data) {
-      $.post("/api/ingredients", data)
-      .then(console.log(data))
-    }
+        
+        // var allIng = [];
+        for (let i = 1; i < ingCount; i++) { 
+          var newIngredient = {
+          ingredient: $("#ingredient-"+i).val().trim(),
+          amount: $("#amount-"+i).val().trim(),
+          measurement:$("#measurement-"+i).val().trim(),
+          RecipeId: res['id']
+        }
+        addIngredienttoDb(newIngredient);
+      // allIng.push(newIngredient);
+        }
+        
       });
     }
-    console.log("this is the array" + allIng);
-    console.log(allIng);  
-};
+    // console.log("this is the array" + allIng);
+    // console.log(allIng);  
+  };
 });
 //calls addRecipetoDb on button click with dummy data instead of user input.
     // addRecipetoDb({
@@ -100,3 +101,4 @@ $(document).ready(function () {
     //   method: 'none',
     //   prepTime: 10
     // });
+   
