@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -64,7 +64,7 @@
               <div class="panel-body">
 
                 <!-- Entry Form -->
-                <form>
+                <form id="createRecipe">
                   <div class="form-group">
                     <label for="band-name-input">Chef's Name</label>
                     <input class="form-control" id="chef-name-input" type="text">
@@ -150,57 +150,15 @@
                     </select>
                   </div>
                   <br>
-                  <div class="form-group">
-                    <label for="description-input">Ingredient #4</label>
-                    <input class="form-control" id="ingredient-4" type="text">
-                  </div>
-                  <div>
-                    <select name="amount" id="amount-4">
-                      <option value="amount">Amount</option>
-                      <option value="eigth">1/8</option>
-                      <option value="quarter">1/4</option>
-                      <option value="half">1/2</option>
-                      <option value="one">1</option>
-                      <option value="two">2</option>
-                    </select>
-                    <select name="measurements" id="measurement-4">
-                      <option value="measure">Measurement</option>
-                      <option value="teaspoon">Teaspoon</option>
-                      <option value="tablespoon">Tablespoon</option>
-                      <option value="cup">Cup</option>
-                      <option value="pint">Pint</option>
-                      <option value="pound">Pound</option>
-                    </select>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label for="description-input">Ingredient #5</label>
-                    <input class="form-control" id="ingredient-5" type="text">
-                  </div>
-                  <div>
-                    <select name="amount" id="amount-5">
-                      <option value="amount">Amount</option>
-                      <option value="eigth">1/8</option>
-                      <option value="quarter">1/4</option>
-                      <option value="half">1/2</option>
-                      <option value="one">1</option>
-                      <option value="two">2</option>
-                    </select>
-                    <select name="measurements" id="measurement-5">
-                      <option value="measure">Measurement</option>
-                      <option value="teaspoon">Teaspoon</option>
-                      <option value="tablespoon">Tablespoon</option>
-                      <option value="cup">Cup</option>
-                      <option value="pint">Pint</option>
-                      <option value="pound">Pound</option>
-                    </select>
-                  </div>
-                  <br>
-                  <br>
-                  <div class="form-group">
+                  
+                </form>
+                <br>
+                <div class="form-group">
+                  <input type="button" class="btn btn-default" id="addIngredient" value="Add another ingredient">
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn-block" id="recipeSubmit">Submit Recipe</button>
                   </div>
-                </form>
               </div>
             </div>
           </div>
