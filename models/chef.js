@@ -26,8 +26,13 @@ module.exports = function(sequelize, DataTypes) {
       recipeCount: {
         type: DataTypes.INTEGER,
         allowNull: true
-      },
-    });
+      }
+    },
+
+       {timestamps: false }
+    
+  
+  );
   
     Chef.associate = function(models) {
         Chef.hasMany(models.Recipe, {
