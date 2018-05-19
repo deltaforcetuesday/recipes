@@ -37,7 +37,12 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull: true
       }
-    });
+    }
+    ,
+
+       {timestamps: false }
+    
+  );
 
     Recipe.associate = function(models) {
         Recipe.belongsTo(models.Chef, {
