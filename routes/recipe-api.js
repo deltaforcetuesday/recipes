@@ -160,11 +160,23 @@ module.exports = function (app) {
     }); */
 
 
+  // app.post("/api/recipes", function (req, res) {
+  //   db.Recipe.create(req.body).then(function (dbRecipe) {
+  //     res.json(dbRecipe);
+  //   });
+  // });
   app.post("/api/recipes", function (req, res) {
     db.Recipe.create(req.body).then(function (dbRecipe) {
       res.json(dbRecipe);
+      success(function(Recipe) {
+        console.log(Recipe)
+        Recipe.find(Recipe.id)
+          .success(function(result){
+            console.log(result)
+          })
     });
   });
+});
 
 
   app.delete("/api/recipes/:id", function (req, res) {
