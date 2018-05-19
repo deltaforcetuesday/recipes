@@ -69,23 +69,26 @@ $(document).ready(function () {
     // A function for creating a recipe in the database then console logging the info 
     function addRecipetoDb(submitData) {
       $.post("/api/recipes", submitData)
-      .then(console.log(submitData));
-    }
-    var allIng = [];
+      .then(function(res){
+        console.log(res);
+        var allIng = [];
     for (let i = 1; i < ingCount; i++) { 
       var newIngredient = {
         ingredient: $("#ingredient-"+i).val().trim(),
         amount: $("#amount-"+i).val().trim(),
-        measurement:$("#measurement-"+i).val().trim()
+        measurement:$("#measurement-"+i).val().trim(),
+         
       }
+      
+      addIngredienttoDb(newIngredient);
       allIng.push(newIngredient);
     }
-    addIngredienttoDb(allIng);
     function addIngredienttoDb(data) {
       $.post("/api/ingredients", data)
-      .then(console.log(data));
+      .then(console.log(data))
     }
-    
+      });
+    }
     console.log("this is the array" + allIng);
     console.log(allIng);  
 };
