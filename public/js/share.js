@@ -14,22 +14,26 @@ $(document).ready(function () {
     input.attr("id", "ingredient-" + ingCount);
     var ingAmount = $("<select>");
     ingAmount.addClass("amount");
-    ingAmount.attr("id", "amount-" + ingCount);
-    ingAmount.append("<option value='0.125'>1/8</option>");
-    ingAmount.append("<option value= '0.25'>1/4</option>");
-    ingAmount.append("<option value='0.5'>1/2</option>");
-    ingAmount.append("<option value='1'>1</option>");
-    ingAmount.append("<option value='2'>2</option>");
+    ingAmount.attr("id", "amount-" + ingCount)
+      .append("<option value='null'>Amount</option>")
+      .append("<option value='1/8'>1/8</option>")
+      .append("<option value='1/4'>1/4</option>")
+      .append("<option value='1/3'>1/3</option>")
+      .append("<option value= '1/4'>1/4</option>")
+      .append("<option value='1/2'>1/2</option>")
+      .append("<option value='1'>1</option>")
+      .append("<option value='2'>2</option>")
+      .append("<option value='3'>3</option>");
 
     var ingMeasurement = $("<select>");
     ingMeasurement.addClass("measurement");
     ingMeasurement.attr("id", "measurement-" + ingCount);
     ingMeasurement.append("<option value='null'>Measurement</option>");
-    ingMeasurement.append("<option value='teaspoon'>Teaspoon</option>");
-    ingMeasurement.append("<option value= 'tablespoon'>Tablespoon</option>");
+    ingMeasurement.append("<option value='tsp.'>Teaspoon</option>");
+    ingMeasurement.append("<option value= 'Tbsp.'>Tablespoon</option>");
     ingMeasurement.append("<option value='cup'>Cup</option>");
-    ingMeasurement.append("<option value='pint'>Pint</option>");
-    ingMeasurement.append("<option value='pound'>Pound</option>");
+    ingMeasurement.append("<option value='oz.'>Ounces</option>");
+    ingMeasurement.append("<option value='lb.'>Pound</option>");
     wrap.append(inputLabel);
     wrap.append(input);
 
@@ -51,6 +55,7 @@ $(document).ready(function () {
     var title = $("#recipe-name-input");
     var method = $("#method-input");
     var prepTime = $("#time-input");
+    var instructions = $("#instruction-input");
 
     // Don't do anything if the fields are empty
     //this is commented out for now for easier testing
@@ -64,7 +69,8 @@ $(document).ready(function () {
       ChefId: ChefId.val().trim(),
       title: title.val().trim(),
       method: method.val().trim(),
-      prepTime: prepTime.val().trim()
+      prepTime: prepTime.val().trim(),
+      instructions: instructions.val().trim(),
     });
 
     function addIngredienttoDb(data) {
@@ -78,11 +84,12 @@ $(document).ready(function () {
         .then(function (res) {
           console.log(res);
 
+
           // var allIng = [];
           for (let i = 1; i < ingCount; i++) {
             var newIngredient = {
               ingredient: $("#ingredient-" + i).val().trim(),
-              amount: $("#amount-" + i).val().trim(),
+              amount: $("#amount-" + i).val(),
               measurement: $("#measurement-" + i).val().trim(),
               RecipeId: res['id']
             }

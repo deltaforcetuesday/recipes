@@ -8,9 +8,8 @@ module.exports = function (sequelize, DataTypes) {
         }
       },
       amount: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-        len: [1]
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       measurement: {
         type: DataTypes.STRING,
