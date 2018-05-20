@@ -78,29 +78,29 @@ module.exports = function (app) {
   // });
 
 
-    // // title LIKE 'Boat%' OR description LIKE '%boat%'
+  // // title LIKE 'Boat%' OR description LIKE '%boat%'
 
-    app.get("/api/recipes", function (req, res) {
-      var query = {};
-      // if (req.query.id) {
-      //   query.id = req.query.id;
-      // }
-      if (req.query.title) {
-        query.title = req.query.title;
-      }
-      db.Recipe.findAll({
+  app.get("/api/recipes", function (req, res) {
+    var query = {};
+    if (req.query.id) {
+      query.id = req.query.id;
+    }
+    if (req.query.title) {
+      query.title = req.query.title;
+    }
+    db.Recipe.findAll({
 
-        where: {
-          title: {
-            [Op.or]: [query.title, 'Chicken Curry']
-          }
-         
-        },
-        include: [db.Chef, db.Ingredient],
-      }).then(function (dbRecipe) {
-        res.json(dbRecipe);
-      });
+      where: query,
+      // {
+      //   title: {
+      //     [Op.or]: [query.title, 'Chicken Curry']
+      //   }
+      // },
+      include: [db.Chef, db.Ingredient],
+    }).then(function (dbRecipe) {
+      res.json(dbRecipe);
     });
+  });
 
   /*
 
@@ -128,23 +128,23 @@ module.exports = function (app) {
         })
     })  
 
-    
+    */
 
 
-    app.get("/api/recipes/:id", function(req, res) {
-      // var query = {};
-      // if (req.query.author_id) {
-      //   query.AuthorId = req.query.author_id;
-      // }
-      db.Recipe.findOne({
-        where: {
-          id: req.params.id
-        },
-        include: [db.Chef, db.Ingredient]
-      }).then(function(dbRecipe) {
-        res.json(dbRecipe);
-      });
-    });  
+  app.get("/api/recipes/:id", function (req, res) {
+    // var query = {};
+    // if (req.query.author_id) {
+    //   query.AuthorId = req.query.author_id;
+    // }
+    db.Recipe.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Chef, db.Ingredient]
+    }).then(function (dbRecipe) {
+      res.json(dbRecipe);
+    });
+  });
 
   /*
     app.get("/recipe", function(req, res) {
@@ -165,18 +165,18 @@ module.exports = function (app) {
       res.json(dbRecipe);
     });
   });
-//   app.post("/api/recipes", function (req, res) {
-//     db.Recipe.create(req.body).then(function (dbRecipe) {
-//       res.json(dbRecipe)
-//       .success(function(Recipe) {
-//         console.log(Recipe)
-//         Recipe.find(Recipe.id)
-//           .success(function(result){
-//             console.log(result)
-//           })
-//     });
-//   });
-// });
+  //   app.post("/api/recipes", function (req, res) {
+  //     db.Recipe.create(req.body).then(function (dbRecipe) {
+  //       res.json(dbRecipe)
+  //       .success(function(Recipe) {
+  //         console.log(Recipe)
+  //         Recipe.find(Recipe.id)
+  //           .success(function(result){
+  //             console.log(result)
+  //           })
+  //     });
+  //   });
+  // });
 
 
   app.delete("/api/recipes/:id", function (req, res) {

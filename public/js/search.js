@@ -19,12 +19,13 @@ $(document).ready(function () {
 
     };
 
-    function searchRecipe(input) {
-        $.get("/api/recipes/?title=" + input, function (data) {
-            console.log("input searched: " + input)
-            console.log("search recipe response: " + JSON.stringify(data))
-        })
-    };
+    // function searchRecipe(input) {
+    //     $.get("/api/recipes?title=" + input, function (data) {
+    //         console.log("input searched: " + input)
+    //         console.log("search recipe response: " + JSON.stringify(data));
+
+    //     })
+    // };
 
 
 

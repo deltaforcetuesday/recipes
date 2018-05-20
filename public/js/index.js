@@ -15,7 +15,7 @@ $(document).ready(function () {
     }
 
     function getOneRecipe(id) {
-        $.get("/api/recipes/?id=" + id, function (data) {
+        $.get("/api/recipes?id=" + id, function (data) {
             console.log("Recipe retrieved: ", data);
 
             if (!data || !data.length) {

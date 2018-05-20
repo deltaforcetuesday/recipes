@@ -1,6 +1,5 @@
-
-module.exports = function(sequelize, DataTypes) {
-    var Ingredient = sequelize.define("Ingredient", {
+module.exports = function (sequelize, DataTypes) {
+  var Ingredient = sequelize.define("Ingredient", {
       ingredient: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -8,47 +7,32 @@ module.exports = function(sequelize, DataTypes) {
           len: [1]
         }
       },
-      /*
-      recipeId: {
-          type: DataTypes.INTEGER,
-          references: {
-              model: "Recipe",
-              key: 'id'
-          }
-      }, */
       amount: {
         type: DataTypes.DECIMAL,
         allowNull: false,
         len: [1]
       },
       measurement: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          validate: {
-            len: [1]
-          }
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1]
+        }
       },
     },
-
-       {timestamps: false }
-    
+    {
+      timestamps: false
+    }
   );
-  
 
-    Ingredient.associate = function(models) {
-      Ingredient.belongsTo(models.Recipe, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
-/*
-    Ingredient.associate = function(models) {
-      Ingredient.belongsToMany(models.Recipe, {
-        through: RecipeIngredient
-        });
-    }; */
 
-    return Ingredient;
+  Ingredient.associate = function (models) {
+    Ingredient.belongsTo(models.Recipe, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
-  
+
+  return Ingredient;
+};
