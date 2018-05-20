@@ -69,6 +69,9 @@ $(document).ready(function () {
             .text("Ingredients:");
         var ingredList = $("<ul>");
 
+        var instructions = $("<p>")
+        .text("Instructions: " + recipe.instructions);
+
         recipe.Ingredients.map(function (ingred) {
             var item = $("<li>")
                 .text(ingred.amount + " " + ingred.measurement + " " + ingred.ingredient);
@@ -76,7 +79,7 @@ $(document).ready(function () {
         });
         ingreds.append(ingredList);
 
-        cardBody.append(cardTitle, cardAuthor, prepTime, method, ingreds);
+        cardBody.append(cardTitle, cardAuthor, prepTime, method, ingreds, instructions);
         card.append(cardBody);
         mainContent.append(card);
     };
