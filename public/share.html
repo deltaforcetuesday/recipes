@@ -21,7 +21,7 @@
       <div class="container-fluid" class="navbar-header">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
-            <a class="navbar-link" href="/">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/share">Share a Recipe</a>
@@ -66,11 +66,11 @@
                 <!-- Entry Form -->
                 <form id="createRecipe">
                   <div class="form-group">
-                    <label for="band-name-input">Chef's Name</label>
+                    <label for="chef-name-input">Chef's Name</label>
                     <input class="form-control" id="chef-name-input" type="text">
                   </div>
                   <div class="form-group">
-                    <label for="location-input">Recipe Name</label>
+                    <label for="recipe-name-input">Recipe Name</label>
                     <input class="form-control" id="recipe-name-input" type="text">
                   </div>
                   <div class="form-group">
@@ -80,6 +80,10 @@
                   <div class="form-group">
                     <label for="time-input">Prep Time</label>
                     <input class="form-control" id="time-input" type="text">
+                  </div>
+                  <div class="form-group">
+                    <label for="instruction-input">Instructions</label>
+                    <input class="form-control" id="instruction-input" type="text">
                   </div>
                   <div class="form-group">
                     <label for="description-input">Ingredient #1</label>
@@ -150,14 +154,14 @@
                     </select>
                   </div>
                   <br>
-                  
+
                 </form>
                 <br>
                 <div class="form-group">
-                  <input type="button" class="btn btn-default" id="addIngredient" value="Add another ingredient">
+                  <input type="button" class="btn btn-primary" id="addIngredient" value="Add another ingredient">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn-block" id="recipeSubmit">Submit Recipe</button>
+                    <btn class="btn btn-primary" id="recipesubmit">Search</btn>
                   </div>
               </div>
             </div>
