@@ -62,6 +62,7 @@ h1 {
   left: 0;
   right: 0;
   background-color: lavender;
+  padding: 10px;
 }
 
 .hide {
@@ -70,6 +71,7 @@ h1 {
 
 .nav-item {
   width: 300px;
+  text-align: center;
 
 }
 
@@ -79,12 +81,23 @@ h1 {
   color: #4285F4;
 }
 
+#images {
+  text-align: center;
+}
+
 img
  {
     width: auto;/*adjust this value to your needs*/
-    max-width: 25%;
+    max-width: 20%;
     height: auto;
-    max-height: 25%;
+    max-height: 20%;
     display: inline-block;
-
  }
+
+ #instruction-input {
+   height: 100px
+ }
+
+#ingredient-input {
+  height: 100px;
+}
