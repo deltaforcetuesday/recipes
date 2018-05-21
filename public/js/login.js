@@ -11,7 +11,7 @@ $(document).ready(function () {
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim()
     };
-     //console.log(userData);
+    //console.log(userData);
     if (!userData.username || !userData.password) {
       return;
     }
@@ -26,11 +26,10 @@ $(document).ready(function () {
     $.post("/api/login", {
       name: username,
       password: password
-    }).then(console.log("beep"));
-    //   function (data) {
-    //   window.location.replace(data);
-    // }).catch(function (err) {
-    //   console.log(err);
-    // });
+    }).then(function (data) {
+        window.location.replace(data);
+      }).catch(function (err) {
+      console.log(err);
+    });
   };
 });

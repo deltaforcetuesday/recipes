@@ -9,7 +9,6 @@ module.exports = function (app) {
   });
 
   app.post("/api/newuser", function (req, res) {
-    console.log(req.body);
     db.Chef.create({
       name: req.body.name,
       email: req.body.email,
