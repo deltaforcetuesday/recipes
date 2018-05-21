@@ -1,79 +1,84 @@
 $(document).ready(function () {
-    console.log("hey well at least the js file is connected");
-
-
+    var retrievedIngs = [];
+    var mainContent = $("#main-content");
 
     $(document).on("click", "#advSearchBtn", runSearch);
 
     function runSearch(event) {
         event.preventDefault();
-
         // var title = $("#recipe-name-input").val().trim();
         // var method = $("#method-input").val().trim();
         // var prepTime = $("#time-input").val().trim();
-
-        // var tTitle = "fettucine alfredo";
-        // var tMethod = "stove";
-
-        // var tahini = "tahini fettucine butter oil ";
-        // var searchInput = tahini.split(" ").join("-");
-        // console.log(searchInput);
-       // searchRecipe(tTitle);
-       searchRecipe();
-
+        var ingreds = $("#ingredient-input").val().trim().split(" ");
+        searchForIng(ingreds);
 
     };
 
-    // function searchRecipe(input) {
-    //     $.get("/api/ingredients?id=" + input, function (data) {
-    //         console.log("input searched: " + input);
-    //         console.log("search recipe response: " + JSON.stringify(data));
-
-    //     });
-    // };
-
-    function searchRecipe() {
-        $("#main-content").empty();
-
-        $.get("/api/ingredients", function (data) {
-            console.log("input searched: ");
-            console.log("search recipe response: " + JSON.stringify(data));
-          
-            var newdiv= $("<div>");
-            for (i=0; i<data.length; i++ ) {
-                var p = $("<p>");
-                p.text(data[i].ingred + " " + data[i].Recipe.title);
-                newdiv.append(p);
-            }
-
-    
-            $("#main-content").append(newdiv);
-
+    function searchForIng(ingredArray) {
+        ingredArray.map(function (arrItem) {
+            $.get("/api/ingredients?ingred=" + arrItem).then(function (data) {
+                console.log("search recipe response: " + JSON.stringify(data));
+                data.forEach(function(dataItem) {
+                    retrievedIngs.push(dataItem);
+                })
+            });
         });
+
+        //displayResults runs before there are any ingredients in the retrievedIngs array
+        //solved this by setting a timeout
+        setTimeout(displayResults, 500);
+
     };
-    // function searchRecipe(input) {
-    //     $.get("/api/ingredients?ingred=" + input, function (data) {
-    //         console.log("input searched: " + input);
-    //         console.log("search recipe response: " + JSON.stringify(data));
-    //         $("#main-content").empty();
-    //         var newdiv= $("<div>");
-    //         var p = $("<p>");
-    //         p.text(data[0].ingredient + " " + data[0].Recipe.title);
-    //         newdiv.append(p);
-    //         // data.forEach(function(item) {
-    //         //     var p = $("<p>");
-    //         //     p.text(item.ingred);
-    //         //     var p2 = $("<p>");
-    //         //     p2.text(item.Recipe.title);
-    //         //     newdiv.append(p + p2);
-    //         // });
-    //         $("#main-content").append(newdiv);
 
-    //     });
-    // };
+    function displayResults() {
+        if (!retrievedIngs.length) {
+            noResults();
+            return;
+        }
 
-  
+        mainContent.empty();
+        var column = $("<div>");
+        column.addClass("card-columns");
+        retrievedIngs.map(function (data) {
+            column.append(createCard(data));
+        });
+        mainContent.append(column);
 
+    };
+
+    function createCard(data) {
+        var card = $("<div>");
+        card.addClass("card");
+        var cardBody = $("<div>");
+        cardBody.addClass("card-body");
+        var titleLink = $("<a href='/recipe?id=" + data.Recipe.id + "'></a>");
+        var title = $("<h5>");
+        title.text(data.Recipe.title);
+        titleLink.append(title);
+        var prep = $("<p>")
+            .text("Prep Time: " + data.Recipe.prepTime + " minutes");
+        var method = $("<p>")
+            .text("Method: " + data.Recipe.method);
+
+        cardBody.append(titleLink, prep, method);
+        card.append(cardBody);
+        return card;
+
+    }
+
+    function noResults() {
+        $("#resultText").text("No results. Please try again");
+        emptySearchBoxes();
+
+    };
+
+    function emptySearchBoxes() {
+        $("#chef-name-input").val("");
+        $("#recipe-name-input").val("");
+        $("#method-input").val("");
+        $("#time-input").val("");
+        $("#ingredient-input").val("");
+    }
 
 
 });

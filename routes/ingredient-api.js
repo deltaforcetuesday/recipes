@@ -26,9 +26,9 @@ module.exports = function (app) {
       // arr = req.query.ingred.split("-");
 
     }
-    if (req.query.id) {
-      query.id = req.query.id;
-    }
+    // if (req.query.id) {
+    //   query.id = req.query.id;
+    // }
     //arr = ["fettucine", "tahini", "salt"];
     db.Ingredient.findAll({
 

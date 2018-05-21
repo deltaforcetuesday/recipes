@@ -1,3 +1,8 @@
+/* .card { 
+  display: inline-block;
+
+} */
+
 body {
   width: auto;
   height: auto;
@@ -45,9 +50,9 @@ h1 {
   height: 10%;
   width: 100%;
 
-}
+} 
 
-#main-content {
+ #main-content {
 
   height: 80%;
   position: absolute;
@@ -55,7 +60,9 @@ h1 {
   right: 0;
   background-color: lavender;
 
-}
+} 
+
+
 
 .wrapper {
   position: absolute;
@@ -87,8 +94,8 @@ h1 {
 
 img
  {
-    width: auto;/*adjust this value to your needs*/
-    max-width: 20%;
+    width: auto; /*adjust this value to your needs */
+     max-width: 20%;
     height: auto;
     max-height: 20%;
     display: inline-block;
@@ -100,4 +107,4 @@ img
 
 #ingredient-input {
   height: 100px;
-}
+} 

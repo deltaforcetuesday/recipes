@@ -58,6 +58,7 @@ $(document).ready(function () {
 
         var cardAuthor = $("<h5>")
             .addClass("card-subtitle text-muted")
+            .text(recipe.Chef.name);
 
         var prepTime = $("<p>")
             .text("Prep Time: " + recipe.prepTime + " minutes");
@@ -86,6 +87,7 @@ $(document).ready(function () {
 
     function displayRecipes(retrievedRecipes) {
         targetContent.empty();
+        targetContent.addClass("card-columns");
         retrievedRecipes.forEach(function (recipe) {
             var recipeCard = createRow(recipe);
             targetContent.append(recipeCard);
@@ -96,27 +98,25 @@ $(document).ready(function () {
         var card = $("<div>");
         card.data("recipe", recipe);
         card.addClass("card");
-        var cardHeader = $("<div>");
-        cardHeader.addClass("card-header");
-        var cardTitle = $("<a href='/recipe?id=" + recipe.id + "'>" + recipe.title + "</a>");
-        var cardAuthor = $("<h5>");
-        cardAuthor.text("Written by: " + recipe.Chef.name);
-        cardAuthor.css({
-            float: "right",
-            color: "blue",
-            "margin-top": "-10px"
-        });
+
+        var titleLink = $("<a href='/recipe?id=" + recipe.id + "'></a>");
+        var title = $("<h5>");
+        title.text(recipe.title);
+        titleLink.append(title);
+        var chef = $("<h6>");
+        chef.addClass("text-muted");
+        chef.text("By: " + recipe.Chef.name);
+        var prep = $("<div>")
+            .text("Prep Time: " + recipe.prepTime + " minutes");
+        var method = $("<div>")
+            .text("Method: " + recipe.method);
 
         var cardBody = $("<div>");
         cardBody.addClass("card-body");
-        var cardP = $("<p>");
-        cardP.text("Prep Time: " + recipe.prepTime + " minutes  Method: " + recipe.method);
-        cardHeader.append(cardTitle);
-        cardHeader.append(cardAuthor);
-        cardBody.append(cardP);
+
+        cardBody.append(titleLink, chef, prep, method);
 
 
-        card.append(cardHeader);
         card.append(cardBody);
         return card;
     };
