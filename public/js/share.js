@@ -5,6 +5,10 @@ $(document).ready(function () {
   $("#addIngredient").on("click", function (event) {
     event.preventDefault();
 
+    // if (recipe.ingredient.amount && recipe.ingredient.measurement) 
+    // {ingredientlistitem.text(recipe.ingredient.amount + " " + 
+    // blahblah.measurement + blahbalh.ingredient) }
+
     var wrap = $("<div>");
     wrap.addClass("form-group");
     var inputLabel = $("<label>");
@@ -26,6 +30,7 @@ $(document).ready(function () {
       .append("<option value='3'>3</option>");
 
     var ingMeasurement = $("<select>");
+    ingMeasurement.addClass("measurement");
     ingMeasurement.addClass("measurement");
     ingMeasurement.attr("id", "measurement-" + ingCount);
     ingMeasurement.append("<option value='null'>Measurement</option>");

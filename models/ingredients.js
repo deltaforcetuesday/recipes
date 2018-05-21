@@ -14,9 +14,9 @@ module.exports = function (sequelize, DataTypes) {
       measurement: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          len: [1]
-        }
+        // validate: {
+        //   len: [1]
+        // }
       },
     },
     {
