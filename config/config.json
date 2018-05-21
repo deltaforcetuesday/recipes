@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "mRm@09051981",
+      "password": "root",
       "database": "chefs_db",
       "host": "127.0.0.1",
       "dialect": "mysql"

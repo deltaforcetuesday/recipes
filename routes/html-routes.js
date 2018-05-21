@@ -17,11 +17,17 @@ module.exports = function(app) {
 
 
   app.get("/login", function(req, res) {
+    if (req.user) {
+      res.redirect("/share");
+    }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
 
   app.get("/newuser", function(req, res) {
+    if (req.user) {
+      res.redirect("/share");
+    }
     res.sendFile(path.join(__dirname, "../public/newuser.html"));
   });
 

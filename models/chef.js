@@ -1,4 +1,3 @@
-
 var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function (sequelize, DataTypes) {
@@ -29,6 +28,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true
     },
+
+  }, {
     timestamps: false
   });
 
@@ -43,11 +44,11 @@ module.exports = function (sequelize, DataTypes) {
     chef.password = bcrypt.hashSync(chef.password, bcrypt.genSaltSync(10), null);
   });
 
-    Chef.associate = function(models) {
-        Chef.hasMany(models.Recipe, {
-          onDelete: "cascade"
-        });
-    };
+  Chef.associate = function (models) {
+    Chef.hasMany(models.Recipe, {
+      onDelete: "cascade"
+    });
+  };
 
-    return Chef;
+  return Chef;
 };

@@ -5,17 +5,17 @@ var passport = require("../config/passport");
 module.exports = function (app) {
 
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    res.json("/welcome");
+    res.json("/share");
   });
 
-  app.post("/api/signup", function (req, res) {
+  app.post("/api/newuser", function (req, res) {
     console.log(req.body);
     db.Chef.create({
-      username: req.body.name,
+      name: req.body.name,
       email: req.body.email,
       password: req.body.password
     }).then(function () {
-      res.redirect(307, "api/login");
+      res.redirect(307, "/api/login");
     }).catch(function (err) {
       console.log(err);
       res.json(err);
@@ -33,7 +33,7 @@ module.exports = function (app) {
     }
     else {
       res.json({
-        username: req.user.name,
+        name: req.user.name,
         id: req.user.id
       });
     }

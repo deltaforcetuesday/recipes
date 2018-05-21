@@ -1,32 +1,36 @@
 $(document).ready(function () {
-  var loginForm = $("form.login");
+  var loginBtn = $("#loginBtn");
   var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
 
-  loginForm.on("submit", function (event) {
+  loginBtn.on("click", function (event) {
     event.preventDefault();
-    var userDate = {
+    console.log("hey");
+
+    var userData = {
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim()
     };
-
-    if (!userDate.username || !userDate.password) {
+     //console.log(userData);
+    if (!userData.username || !userData.password) {
       return;
     }
+    console.log("the function is still running");
 
     loginUser(userData.username, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+    // emailInput.val("");
+    // passwordInput.val("");
   });
 
   function loginUser(username, password) {
     $.post("/api/login", {
-      username: name,
+      name: username,
       password: password
-    }).then(function (data) {
-      window.location.replace(data);
-    }).catch(function (err) {
-      console.log(err);
-    });
-  }
+    }).then(console.log("beep"));
+    //   function (data) {
+    //   window.location.replace(data);
+    // }).catch(function (err) {
+    //   console.log(err);
+    // });
+  };
 });
