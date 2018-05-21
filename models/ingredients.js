@@ -1,28 +1,23 @@
 module.exports = function (sequelize, DataTypes) {
   var Ingredient = sequelize.define("Ingredient", {
-      ingredient: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      amount: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
-      measurement: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        // validate: {
-        //   len: [1]
-        // }
-      },
+    ingredient: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     },
-    {
-      timestamps: false
-    }
-  );
+    amount: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    measurement: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+  }, {
+    timestamps: false
+  });
 
 
   Ingredient.associate = function (models) {

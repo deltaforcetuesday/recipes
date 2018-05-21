@@ -9,8 +9,7 @@ $(document).ready(function () {
         var recipeId = url.split("=")[1];
         console.log("id of query recipe: " + recipeId);
         getOneRecipe(recipeId);
-    }
-    else {
+    } else {
         getRecipes();
     }
 
@@ -70,7 +69,7 @@ $(document).ready(function () {
         var ingredList = $("<ul>");
 
         var instructions = $("<p>")
-        .text("Instructions: " + recipe.instructions);
+            .text("Instructions: " + recipe.instructions);
 
         recipe.Ingredients.map(function (ingred) {
             var item = $("<li>")

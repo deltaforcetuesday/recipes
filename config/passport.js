@@ -3,8 +3,7 @@ var LocalStrategy = require("passport-local").Strategy;
 
 var db = require("../models");
 
-passport.use(new LocalStrategy(
-  {
+passport.use(new LocalStrategy({
     usernameField: "name"
   },
   function (name, password, done) {
@@ -17,8 +16,7 @@ passport.use(new LocalStrategy(
         return done(null, false, {
           message: "Incorrect username."
         });
-      }
-      else if (!dbChef.validPassword(password)) {
+      } else if (!dbChef.validPassword(password)) {
         return done(null, false, {
           message: "Incorrect password."
         });

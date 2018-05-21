@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  $.get("/api/user_data").then(function(data) {
+  $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.name);
   });
 
@@ -8,10 +8,6 @@ $(document).ready(function () {
 
   $("#addIngredient").on("click", function (event) {
     event.preventDefault();
-
-    // if (recipe.ingredient.amount && recipe.ingredient.measurement) 
-    // {ingredientlistitem.text(recipe.ingredient.amount + " " + 
-    // blahblah.measurement + blahbalh.ingredient) }
 
     var wrap = $("<div>");
     wrap.addClass("form-group");
