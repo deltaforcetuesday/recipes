@@ -48,7 +48,7 @@
                       <option value="long">45-60 Minutes Prep Time</option>
                       <option value="forever">60+ Minutes Prep Time</option>
                     </select>
-                    <input type="submit" id="quicksearch">
+                    <input type="submit" id="quicksearchSubmit">
                   </fieldset>
                 </form>
               </a>
@@ -64,17 +64,17 @@
       <h2>Please enter your username and password.</h2>
       <h2>Only registered users can share recipies with the world.</h2>
       <!-- Entry Form -->
-      <form>
+      <form  class="login"> 
         <div class="form-group">
           <label for="band-name-input">Username</label>
-          <input class="form-control" id="username-input" type="text" placeholder="What's your Chef Name?">
+          <input type="text" class="form-control" id="username-input" placeholder="What's your Chef Name?">
         </div>
         <div class="form-group">
           <label for="location-input">Password</label>
-          <input class="form-control" id="password-input" type="text" placeholder="cremefraiche">
+          <input type="password" class="form-control" id="password-input" placeholder="cremefraiche">
         </div>
         <div class="form-group">
-          <btn class="btn btn-primary" id="logon">Log In</btn>
+          <btn class="btn btn-primary" id="loginBtn" type="submit">Login</btn>
         </div>
       </form>
       <br>
@@ -84,4 +84,9 @@
       <h3>If you have not joined us at the table yet, no worries! Just click
         <a href="/newuser">here</a> to sign up for an account.</h3>
     </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+
   </body>
+</html>

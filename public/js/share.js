@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  $.get("/api/user_data").then(function(data) {
+    $(".member-name").text(data.name);
+  });
+
   var ingCount = 4;
 
   $("#addIngredient").on("click", function (event) {
