@@ -6,69 +6,72 @@
 body {
   width: auto;
   height: auto;
-  background-color: rosybrown;
+  /* background-color: rosybrown; */
 }
 
 #head {
-  background-color: darkgreen;
-  color: lightgray;
+  background-color: #C3D4BE;
+  color: darkgreen;
   text-align: center;
   width: 100%;
   padding: 10px;
   font-size: 15px;
   height: 10%;
+  margin:10px auto;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Yellowtail', cursive;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 30px;
 
   -webkit-text-fill-color:  rgb(18, 104, 145); /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  font-family: sans-serif;
 
-
-  font-family: 'Yellowtail', cursive;
+  /* font-family: 'Yellowtail', cursive; */
 }
 
 h1 {
   font-size: 60px;
-  -webkit-text-fill-color: #e05757;
+  -webkit-text-fill-color: darkgreen;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(122, 122, 122);
   font-family: 'Yellowtail', cursive;
 }
 
 #navbar  {
-  background-color: greenyellow;
+  background-color: #C3D4BE;
   font-family: 'Yellowtail', cursive;
-  font-size: 20px;
+  font-size: 22px;
   height: 10%;
   width: 100%;
-
+  margin: 0px auto;
+  color: darkgreen;
 } 
-
+.navbar-primary{
+  color:darkgreen;
+}
  #main-content {
 
   height: 80%;
   position: absolute;
   left: 0;
   right: 0;
-  background-color: lavender;
+  background-color: #C3D4BE;
+  margin-top: 10px;
 
 } 
-
-
 
 .wrapper {
   position: absolute;
   left: 0;
   right: 0;
-  background-color: lavender;
+  background-color: #C3D4BE;
   padding: 10px;
 }
 
@@ -79,13 +82,14 @@ h1 {
 .nav-item {
   width: 300px;
   text-align: center;
+  color:darkgreen;
 
 }
 
 #quicksearch {
-  background-color: greenyellow;
+  background-color: #C3D4BE;
   font-family: 'Yellowtail', cursive;
-  color: #4285F4;
+  color: darkgreen;
 }
 
 #images {
@@ -99,6 +103,7 @@ img
     height: auto;
     max-height: 20%;
     display: inline-block;
+    margin: 10px;
  }
 
  #instruction-input {
@@ -108,3 +113,22 @@ img
 #ingredient-input {
   height: 100px;
 } 
+#recipeSubmit,
+#loginBtn,
+#add-user-btn,
+#advSearchBtn{
+  background-color: darkgreen;
+  color: white;
+  border-color: darkgreen;
+}
+#addIngredient{
+  background-color:white;
+  color: darkgreen;
+  border-color: darkgreen;
+  border-width: 2px;
+}
+#newUser{
+  background-color:#C3D4BE;
+  padding-right: 30px;
+  padding-left: 30px;
+}
