@@ -73,8 +73,15 @@ $(document).ready(function () {
             .text("Instructions: " + recipe.instructions);
 
         recipe.Ingredients.map(function (ingred) {
-            var item = $("<li>")
-                .text(ingred.amount + " " + ingred.measurement + " " + ingred.ingredient);
+            var item = $("<li>");
+            if (ingred.amount === " " && ingred.measurement === " ") {
+                item.text(ingred.ingredient);
+
+            } else if (ingred.measurement === " ") {
+                item.text(ingred.amount + " MUAHAHAHA ALIS IF STATEMENT WORKED " + ingred.ingredient);
+            } else {
+                item.text(ingred.amount + " " + ingred.measurement + " " + ingred.ingredient);
+            }
             ingredList.append(item);
         });
         ingreds.append(ingredList);

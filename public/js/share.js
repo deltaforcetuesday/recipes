@@ -22,7 +22,7 @@ $(document).ready(function () {
     var ingAmount = $("<select>");
     ingAmount.addClass("amount");
     ingAmount.attr("id", "amount-" + ingCount)
-      .append("<option value='null'>Amount</option>")
+      .append("<option value=' '>Amount</option>")
       .append("<option value='1/8'>1/8</option>")
       .append("<option value='1/4'>1/4</option>")
       .append("<option value='1/3'>1/3</option>")
@@ -36,7 +36,7 @@ $(document).ready(function () {
     ingMeasurement.addClass("measurement");
     ingMeasurement.addClass("measurement");
     ingMeasurement.attr("id", "measurement-" + ingCount);
-    ingMeasurement.append("<option value='null'>Measurement</option>");
+    ingMeasurement.append("<option value=' '>Measurement</option>");
     ingMeasurement.append("<option value='tsp.'>Teaspoon</option>");
     ingMeasurement.append("<option value= 'Tbsp.'>Tablespoon</option>");
     ingMeasurement.append("<option value='cup'>Cup</option>");
