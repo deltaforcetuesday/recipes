@@ -2,15 +2,15 @@ $(document).ready(function () {
   var targetContent = $("#target");
   var mainContent = $("#main-content");
   var chefId;
-// sticky navbar  
- $(window).on("scroll", function() {
-  if ($(window).scrollTop()){
-    $("#scroll-navbar").addClass("sticky")
-  }
-  else{
-    $("#scroll-navbar").removeClass("sticky")
-  }
-});
+//sticky navbar  
+//  $(window).on("scroll", function() {
+//   if ($(window).scrollTop()){
+//     $("#scroll-navbar").addClass("sticky")
+//   }
+//   else{
+//     $("#scroll-navbar").removeClass("sticky")
+//   }
+// });
 
 
   $.get("/api/user_data").then(function (data) {

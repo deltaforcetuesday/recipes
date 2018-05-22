@@ -56,17 +56,31 @@ h1 {
 
 #scroll-navbar{
   overflow: hidden;
+  z-index: 999999 !important;
+}
+#main-content {
+  z-index: 1 !important;
+  height: 80%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: #C3D4BE;
+  margin-top: 10px;
+  padding-top: 70px;
+
 }
 .sticky{
-  
     position: fixed;
     top: 0;
     width: 100%;
 }
+.sticky + #main-content {
+  padding-top: 60px;
+}
 .navbar-primary{
   color:darkgreen;
 }
- #main-content {
+ /* #main-content {
 
   height: 80%;
   position: absolute;
@@ -74,8 +88,9 @@ h1 {
   right: 0;
   background-color: #C3D4BE;
   margin-top: 10px;
+  padding-top: 70px;
 
-} 
+}  */
 
 .wrapper {
   position: absolute;
