@@ -3,14 +3,14 @@ $(document).ready(function () {
   var mainContent = $("#main-content");
   var chefId;
 //sticky navbar  
-//  $(window).on("scroll", function() {
-//   if ($(window).scrollTop()){
-//     $("#scroll-navbar").addClass("sticky")
-//   }
-//   else{
-//     $("#scroll-navbar").removeClass("sticky")
-//   }
-// });
+ $(window).on("scroll", function() {
+  if ($(window).scrollTop()){
+    $("#nb").addClass("sticky")
+  }
+  else{
+    $("#nb").removeClass("sticky")
+  }
+});
 
 
   $.get("/api/user_data").then(function (data) {
