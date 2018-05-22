@@ -19,7 +19,7 @@ $(document).ready(function () {
         var title = $("#recipe-name-input").val().trim();
         var chef = $("#chef-name-input").val().trim();
         var method = $("#method-input").val().trim();
-        // var prepTime = $("#time-input").val().trim();
+        var prepTime = $("#time-input").val().trim();
         var ingreds = $("#ingredient-input").val().trim().split(" ");
 
         if (title.charAt(0)) {
@@ -38,6 +38,10 @@ $(document).ready(function () {
         if ($("#ingredient-input").val().trim()) {
             console.log(ingreds);
             searchForIng(ingreds);
+        }
+        if (prepTime.charAt(0)) {
+            var timeQuery = "?preptime=" + prepTime;
+            searchRecipes(timeQuery);
         }
 
     };
