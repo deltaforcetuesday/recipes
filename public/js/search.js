@@ -4,6 +4,15 @@ $(document).ready(function () {
     var chef = $("#chef-name-input").val().trim();
     //var retrievedTitle = "title";
     var mainContent = $("#main-content");
+    //sticky navbar  
+ $(window).on("scroll", function() {
+    if ($(window).scrollTop()){
+      $("#nb").addClass("sticky")
+    }
+    else{
+      $("#nb").removeClass("sticky")
+    }
+  });
 
     $(document).on("click", "#advSearchBtn", runSearch);
 
