@@ -1,16 +1,18 @@
 $(document).ready(function () {
     var retrievedIngs = [];
+    //var retrievedTitle = [];
     var mainContent = $("#main-content");
 
     $(document).on("click", "#advSearchBtn", runSearch);
 
     function runSearch(event) {
         event.preventDefault();
-        // var title = $("#recipe-name-input").val().trim();
+        //var title = $("#recipe-name-input").val().trim();
         // var method = $("#method-input").val().trim();
         // var prepTime = $("#time-input").val().trim();
         var ingreds = $("#ingredient-input").val().trim().split(" ");
         searchForIng(ingreds);
+        //searchForName(title);
 
     };
 
@@ -26,7 +28,7 @@ $(document).ready(function () {
 
         //displayResults runs before there are any ingredients in the retrievedIngs array
         //solved this by setting a timeout
-        setTimeout(displayResults, 500);
+        setTimeout(displayResults, 3000);
 
     };
 

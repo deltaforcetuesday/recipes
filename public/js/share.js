@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+  var targetContent = $("#target");
+  var mainContent = $("#main-content");
   var chefId;
 
   $.get("/api/user_data").then(function (data) {
@@ -67,7 +68,7 @@ $(document).ready(function () {
     // if (!title.val().trim() ||
     //     !prepTime.val().trim() ||
     //     return;
-    // } 
+    // }
 
     //call addRecipetoDb and pass in the user inputs
     addRecipetoDb({
@@ -96,12 +97,79 @@ $(document).ready(function () {
             ingredient: $("#ingredient-" + i).val().trim(),
             amount: $("#amount-" + i).val(),
             measurement: $("#measurement-" + i).val().trim(),
-            RecipeId: res['id']
+            RecipeId: res["id"]
           }
           addIngredienttoDb(newIngredient);
+          displayRecipe(res["id"]);
         }
 
       });
+  }
+
+  function displayRecipe(RecipeId) {
+    $.get("/api/recipes?id=" + RecipeId, function (data) {
+      console.log("Recipe retrieved: ", data);
+
+      if (!data || !data.length) {
+        displayEmpty();
+      } else {
+        setTimeout(displayOneRecipe(data[0]), 1000);
+      }
+    });
+  };
+
+  function displayEmpty() {
+    targetContent.empty();
+    var messageH2 = $("<h2>");
+    messageH2.html("No recipes yet");
+    targetContent.append(messageH2);
+  };
+
+  function displayOneRecipe(recipe) {
+    mainContent.empty();
+    var card = $("<div>")
+      .data("recipe", recipe)
+      .addClass("card");
+    var cardBody = $("<div>")
+      .addClass("card-body");
+
+    var cardTitle = $("<h4>")
+      .addClass("card-title")
+      .text(recipe.title.toUpperCase());
+
+    var cardAuthor = $("<h5>")
+      .addClass("card-subtitle text-muted")
+      .text(recipe.Chef.name);
+
+    var prepTime = $("<p>")
+      .text("Prep Time: " + recipe.prepTime + " minutes");
+
+    var method = $("<p>")
+      .text("Method: " + recipe.method);
+    var ingreds = $("<p>")
+      .text("Ingredients:");
+    var ingredList = $("<ul>");
+
+    var instructions = $("<p>")
+      .text("Instructions: " + recipe.instructions);
+
+    recipe.Ingredients.map(function (ingred) {
+      var item = $("<li>");
+      if (ingred.amount === " " && ingred.measurement === " ") {
+        item.text(ingred.ingredient);
+
+      } else if (ingred.measurement === " ") {
+        item.text(ingred.amount + " MUAHAHAHA ALIS IF STATEMENT WORKED " + ingred.ingredient);
+      } else {
+        item.text(ingred.amount + " " + ingred.measurement + " " + ingred.ingredient);
+      }
+      ingredList.append(item);
+    });
+    ingreds.append(ingredList);
+
+    cardBody.append(cardTitle, cardAuthor, prepTime, method, ingreds, instructions);
+    card.append(cardBody);
+    mainContent.append(card);
   }
 
 });
