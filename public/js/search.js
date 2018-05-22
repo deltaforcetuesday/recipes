@@ -86,6 +86,9 @@ $(document).ready(function () {
                 })
             });
         });
+        if (!recipeResults.length) {
+            setTimeout(displayResults, 500);
+        }
 
     };
 
