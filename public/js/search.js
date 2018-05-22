@@ -1,18 +1,16 @@
 $(document).ready(function () {
-    var retrievedIngs = [];
-    var title = $("#recipe-name-input").val().trim();
-    var chef = $("#chef-name-input").val().trim();
-    //var retrievedTitle = "title";
+
+    var recipeResults = [];
     var mainContent = $("#main-content");
+
     //sticky navbar  
- $(window).on("scroll", function() {
-    if ($(window).scrollTop()){
-      $("#nb").addClass("sticky")
-    }
-    else{
-      $("#nb").removeClass("sticky")
-    }
-  });
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop()) {
+            $("#nb").addClass("sticky")
+        } else {
+            $("#nb").removeClass("sticky")
+        }
+    });
 
     $(document).on("click", "#advSearchBtn", runSearch);
 
@@ -23,77 +21,73 @@ $(document).ready(function () {
         var method = $("#method-input").val().trim();
         // var prepTime = $("#time-input").val().trim();
         var ingreds = $("#ingredient-input").val().trim().split(" ");
-        searchForIng(ingreds);
-        searchForName(title);
-        searchForChef(chef);
-        searchForMethod(method);
-    };
 
-    function searchForMethod(method) {
-        //if (method) {
-            //method = "/?method=" + method
-        //}
-        $.find("/api/recipes/?method=" + method).then(function (data) {
-            console.log("search recipe response: " + JSON.stringify(data));
-            //data.forEach(function (dataItem) {
-            //push(data)
-            //})
-        });
-
-
-        setTimeout(displayResults, 2000);
-
-    };
-
-    function searchForChef(chef) {
-        //chef = chef || "";
-        if (chef) {
-            chef = "/?name=" + chef;
+        if (title.charAt(0)) {
+            console.log("title is not blank");
+            var titleQuery = "?title=" + title;
+            searchRecipes(titleQuery);
         }
-        $.get("/api/user_data" + chef).then(function (data) {
-            console.log("recipes" + JSON.stringify(data));
-            recipes = data;
-            if (!recipes || recipes.length) {
-                noResults(chef);
-            }
-            else {
-                setTimeout(displayResults, 2000);
-            }
-        });
 
+        if (method.charAt(0)) {
+            var methodQuery = "?method=" + method;
+            searchRecipes(methodQuery);
+        }
+        if (chef.charAt(0)) {
+            searchForChef(chef);
+        }
+        if ($("#ingredient-input").val().trim()) {
+            console.log(ingreds);
+            searchForIng(ingreds);
+        }
 
     };
 
-    function searchForName(title) {
-        $.get("/api/recipes?title=" + title).then(function (data) {
-                console.log("search recipe response: " + JSON.stringify(data));
-                //data.forEach(function (dataItem) {
-                    //push(data)
-                //})
+
+    function searchRecipes(query) {
+        $.get("/api/recipes" + query).then(function (data) {
+            console.log(data.length);
+            console.log("search recipe response: " + JSON.stringify(data));
+            data.forEach(function (dataItem) {
+                recipeResults.push(dataItem);
+            })
         });
-
-
-        setTimeout(displayResults, 2000);
-    };
-
-    function searchForIng(ingredArray) {
-        ingredArray.map(function (arrItem) {
-            $.get("/api/ingredients?ingred=" + arrItem).then(function (data) {
-                console.log("search recipe response: " + JSON.stringify(data));
-                data.forEach(function(dataItem) {
-                    retrievedIngs.push(dataItem);
-                })
-            });
-        });
-
-        //displayResults runs before there are any ingredients in the retrievedIngs array
-        //solved this by setting a timeout
         setTimeout(displayResults, 1000);
 
     };
 
+    function searchForChef(chef) {
+        if (chef) {
+            chef = "?name=" + chef;
+        }
+        $.get("/api/chefs" + chef).then(function (res) {
+            console.log(res.length)
+            res.forEach(function (chefObj) {
+                var chefQuery = "?chefid=" + chefObj.id;
+                searchRecipes(chefQuery);
+
+            });
+            if (!recipeResults.length) {
+                setTimeout(displayResults, 500);
+            }
+        });
+    };
+
+    function searchForIng(ingredArray) {
+        ingredArray.map(function (arrItem) {
+            $.get("/api/ingredients?ingred=" + arrItem).then(function (res) {
+                console.log(res.length);
+                res.forEach(function (ingObj) {
+                    var idQuery = "?id=" + ingObj.RecipeId;
+                    searchRecipes(idQuery);
+                })
+            });
+        });
+
+    };
+
+
     function displayResults() {
-        if (!retrievedIngs.length) {
+        if (!recipeResults.length) {
             noResults();
             return;
         }
@@ -101,7 +95,7 @@ $(document).ready(function () {
         mainContent.empty();
         var column = $("<div>");
         column.addClass("card-columns");
-        retrievedIngs.map(function (data) {
+        recipeResults.map(function (data) {
             column.append(createCard(data));
         });
         mainContent.append(column);
@@ -113,14 +107,14 @@ $(document).ready(function () {
         card.addClass("card");
         var cardBody = $("<div>");
         cardBody.addClass("card-body");
-        var titleLink = $("<a href='/recipe?id=" + data.Recipe.id + "'></a>");
+        var titleLink = $("<a href='/recipe?id=" + data.id + "'></a>");
         var title = $("<h5>");
-        title.text(data.Recipe.title);
+        title.text(data.title);
         titleLink.append(title);
         var prep = $("<p>")
-            .text("Prep Time: " + data.Recipe.prepTime + " minutes");
+            .text("Prep Time: " + data.prepTime + " minutes");
         var method = $("<p>")
-            .text("Method: " + data.Recipe.method);
+            .text("Method: " + data.method);
 
         cardBody.append(titleLink, prep, method);
         card.append(cardBody);
@@ -129,7 +123,9 @@ $(document).ready(function () {
     }
 
     function noResults() {
-        $("#resultText").text("No results. Please try again");
+      //  $("#resultText").text("No results. Please try again");
+        $("#noResult").addClass("alert alert-danger")
+        .text("No results. Please try again");
         emptySearchBoxes();
 
     };
@@ -141,6 +137,30 @@ $(document).ready(function () {
         $("#time-input").val("");
         $("#ingredient-input").val("");
     }
+
+
+
+    // function searchForTitle(title) {
+    //     $.get("/api/recipes?title=" + title, function (data) {
+    //         console.log("Recipe retrieved: ", data);
+
+    //         if (!data || !data.length) {
+    //             console.log("no response");
+    //         } else {
+    //             console.log("you did it");
+    //             console.log(data);
+    //         }
+    //     });
+    // }
+
+    // function searchForMethod(method) {
+    //     $.get("/api/recipes?method=" + method).then(function (data) {
+    //         console.log(data.length);
+    //     });
+    //    // setTimeout(displayResults, 2000);
+
+    // };
+
 
 
 });
