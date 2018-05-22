@@ -44,7 +44,8 @@ h1 {
   font-family: 'Yellowtail', cursive;
 }
 
-#navbar  {
+#navbar,
+#quichsearchSubmit  {
   background-color: #C3D4BE;
   font-family: 'Yellowtail', cursive;
   font-size: 22px;
@@ -143,7 +144,8 @@ img
 #recipeSubmit,
 #loginBtn,
 #add-user-btn,
-#advSearchBtn{
+#advSearchBtn
+#quicksearchSubmit{
   background-color: darkgreen;
   color: white;
   border-color: darkgreen;
