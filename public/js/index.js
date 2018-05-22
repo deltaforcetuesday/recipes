@@ -1,6 +1,16 @@
 $(document).ready(function () {
     var targetContent = $("#target");
     var mainContent = $("#main-content");
+    //sticky navbar  
+ $(window).on("scroll", function() {
+    if ($(window).scrollTop()){
+      $("#nb").addClass("sticky")
+    }
+    else{
+      $("#nb").removeClass("sticky")
+    }
+  });
+  
 
 
     var url = window.location.search;

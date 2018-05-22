@@ -2,6 +2,16 @@ $(document).ready(function () {
   var loginBtn = $("#loginBtn");
   var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
+  //sticky navbar  
+ $(window).on("scroll", function() {
+  if ($(window).scrollTop()){
+    $("#nb").addClass("sticky")
+  }
+  else{
+    $("#nb").removeClass("sticky")
+  }
+});
+
 
   loginBtn.on("click", function (event) {
     event.preventDefault();

@@ -3,6 +3,16 @@ $(document).ready(function () {
     var usernameInput = $("#username-input");
     var emailInput = $("#emailAddress");
     var passwordInput = $("#password-input");
+    //sticky navbar  
+ $(window).on("scroll", function() {
+    if ($(window).scrollTop()){
+      $("#nb").addClass("sticky")
+    }
+    else{
+      $("#nb").removeClass("sticky")
+    }
+  });
+  
 
     signUpForm.on("submit", function (event) {
         event.preventDefault();
