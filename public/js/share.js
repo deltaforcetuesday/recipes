@@ -3,16 +3,14 @@ $(document).ready(function () {
   var mainContent = $("#main-content");
   var chefId;
 // sticky navbar  
-// window.onscroll = function() {myFunction()};
-// var navbar = $("#scroll-navbar");
-// var sticky = navbar.offsetTop;
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     navbar.classList.add("sticky")
-//   } else {
-//     navbar.classList.remove("sticky");
-//   }
-// }
+ $(window).on("scroll", function() {
+  if ($(window).scrollTop()){
+    $("#scroll-navbar").addClass("sticky")
+  }
+  else{
+    $("#scroll-navbar").removeClass("sticky")
+  }
+});
 
 
   $.get("/api/user_data").then(function (data) {
