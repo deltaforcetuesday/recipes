@@ -1,19 +1,43 @@
 $(document).ready(function () {
     var retrievedIngs = [];
-    //var retrievedTitle = [];
+    var title = $("#recipe-name-input").val().trim();
+    var chef = $("#chef-name-input").val().trim();
+    //var retrievedTitle = "title";
     var mainContent = $("#main-content");
 
     $(document).on("click", "#advSearchBtn", runSearch);
 
     function runSearch(event) {
         event.preventDefault();
-        //var title = $("#recipe-name-input").val().trim();
+        var title = $("#recipe-name-input").val().trim();
+        var chef = $("#chef-name-input").val().trim();
         // var method = $("#method-input").val().trim();
         // var prepTime = $("#time-input").val().trim();
         var ingreds = $("#ingredient-input").val().trim().split(" ");
         searchForIng(ingreds);
-        //searchForName(title);
+        searchForName(title);
+        searchForChef(chef)
 
+    };
+
+    function searchForChef(chef) {
+        $.get("/api/user_data?name=" + name).then(function (data) {
+            console.log("search recipe response: " + JSON.stringify(data));
+        });
+
+        setTimeout(displayResults, 2000);
+    };
+
+    function searchForName(title) {
+        $.get("/api/recipes?title=" + title).then(function (data) {
+                console.log("search recipe response: " + JSON.stringify(data));
+                //data.forEach(function (dataItem) {
+                    //push(data)
+                //})
+        });
+
+
+        setTimeout(displayResults, 2000);
     };
 
     function searchForIng(ingredArray) {
@@ -34,6 +58,12 @@ $(document).ready(function () {
 
     function displayResults() {
         if (!retrievedIngs.length) {
+            noResults();
+            return;
+        } else if (!title.length) {
+            noResults();
+            return;
+        } else if (!chef.length) {
             noResults();
             return;
         }
