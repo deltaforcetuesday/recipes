@@ -57,6 +57,12 @@ h1 {
 #scroll-navbar{
   overflow: hidden;
 }
+.sticky{
+  
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 .navbar-primary{
   color:darkgreen;
 }
