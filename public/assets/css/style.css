@@ -52,7 +52,11 @@ h1 {
   width: 100%;
   margin: 0px auto;
   color: darkgreen;
-} 
+}
+
+#scroll-navbar{
+  overflow: hidden;
+}
 .navbar-primary{
   color:darkgreen;
 }

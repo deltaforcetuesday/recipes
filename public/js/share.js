@@ -2,6 +2,18 @@ $(document).ready(function () {
   var targetContent = $("#target");
   var mainContent = $("#main-content");
   var chefId;
+// sticky navbar  
+// window.onscroll = function() {myFunction()};
+// var navbar = $("#scroll-navbar");
+// var sticky = navbar.offsetTop;
+// function myFunction() {
+//   if (window.pageYOffset >= sticky) {
+//     navbar.classList.add("sticky")
+//   } else {
+//     navbar.classList.remove("sticky");
+//   }
+// }
+
 
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.name);
@@ -53,7 +65,10 @@ $(document).ready(function () {
   });
 
   $(document).on("click", "#recipeSubmit", submitRecipe);
-
+  // scroll to top
+  $('html, body').animate({
+    scrollTop: $("#head").offset().top
+  }, 500);
 
   function submitRecipe(event) {
     event.preventDefault();

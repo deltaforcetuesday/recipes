@@ -16,7 +16,7 @@
   <div id="head">
     <h1>Chupper Time</h1>
   </div>
-
+<div id="scroll-navbar">
   <nav class="navbar navbar-primary" id="navbar">
     <div class="container-fluid" class="navbar-header">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -52,6 +52,7 @@
       </ul>
     </div>
   </nav>
+</div>
   <div class="container" id="main-content">
 
 
@@ -179,6 +180,20 @@
       </div>
     </div>
   </div>
+  <script>
+    window.onscroll = function() {myFunction()};
+    
+    var navbar = $("#scroll-navbar");
+    var sticky = navbar.offsetTop;
+    
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+    </script>
 </body>
 
 </html>
