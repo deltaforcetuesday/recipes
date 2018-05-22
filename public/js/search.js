@@ -11,21 +11,48 @@ $(document).ready(function () {
         event.preventDefault();
         var title = $("#recipe-name-input").val().trim();
         var chef = $("#chef-name-input").val().trim();
-        // var method = $("#method-input").val().trim();
+        var method = $("#method-input").val().trim();
         // var prepTime = $("#time-input").val().trim();
         var ingreds = $("#ingredient-input").val().trim().split(" ");
         searchForIng(ingreds);
         searchForName(title);
-        searchForChef(chef)
+        searchForChef(chef);
+        searchForMethod(method);
+    };
+
+    function searchForMethod(method) {
+        //if (method) {
+            //method = "/?method=" + method
+        //}
+        $.find("/api/recipes/?method=" + method).then(function (data) {
+            console.log("search recipe response: " + JSON.stringify(data));
+            //data.forEach(function (dataItem) {
+            //push(data)
+            //})
+        });
+
+
+        setTimeout(displayResults, 2000);
 
     };
 
     function searchForChef(chef) {
-        $.get("/api/user_data?name=" + name).then(function (data) {
-            console.log("search recipe response: " + JSON.stringify(data));
+        //chef = chef || "";
+        if (chef) {
+            chef = "/?name=" + chef;
+        }
+        $.get("/api/user_data" + chef).then(function (data) {
+            console.log("recipes" + JSON.stringify(data));
+            recipes = data;
+            if (!recipes || recipes.length) {
+                noResults(chef);
+            }
+            else {
+                setTimeout(displayResults, 2000);
+            }
         });
 
-        setTimeout(displayResults, 2000);
+
     };
 
     function searchForName(title) {
@@ -52,18 +79,12 @@ $(document).ready(function () {
 
         //displayResults runs before there are any ingredients in the retrievedIngs array
         //solved this by setting a timeout
-        setTimeout(displayResults, 3000);
+        setTimeout(displayResults, 1000);
 
     };
 
     function displayResults() {
         if (!retrievedIngs.length) {
-            noResults();
-            return;
-        } else if (!title.length) {
-            noResults();
-            return;
-        } else if (!chef.length) {
             noResults();
             return;
         }
