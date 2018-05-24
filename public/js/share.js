@@ -56,9 +56,9 @@ $(document).ready(function () {
     wrap.append(inputLabel);
     wrap.append(input);
 
-    $("#createRecipe").append(wrap);
-    $("#createRecipe").append(ingAmount);
-    $("#createRecipe").append(ingMeasurement);
+    $("#newIngredient").append(wrap);
+    $("#newIngredient").append(ingAmount);
+    $("#newIngredient").append(ingMeasurement);
     ingCount++;
   });
 
