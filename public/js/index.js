@@ -1,16 +1,15 @@
 $(document).ready(function () {
-    var targetContent = $("#target");
     var mainContent = $("#main-content");
+
     //sticky navbar  
- $(window).on("scroll", function() {
-    if ($(window).scrollTop()){
-      $("#nb").addClass("sticky")
-    }
-    else{
-      $("#nb").removeClass("sticky")
-    }
-  });
-  
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop()) {
+            $("#nb").addClass("sticky")
+        } else {
+            $("#nb").removeClass("sticky")
+        }
+    });
+
 
 
     var url = window.location.search;
@@ -48,13 +47,14 @@ $(document).ready(function () {
     };
 
     function displayEmpty() {
-        targetContent.empty();
+        mainContent.empty();
         var messageH2 = $("<h2>");
         messageH2.html("No recipes yet");
-        targetContent.append(messageH2);
+        mainContent.append(messageH2);
     };
 
     function displayOneRecipe(recipe) {
+        $(".jumbotron").addClass("hide");
         mainContent.empty();
         var card = $("<div>")
             .data("recipe", recipe)
@@ -103,11 +103,11 @@ $(document).ready(function () {
 
 
     function displayRecipes(retrievedRecipes) {
-        targetContent.empty();
-        targetContent.addClass("card-columns");
+        mainContent.empty();
+        mainContent.addClass("card-columns");
         retrievedRecipes.forEach(function (recipe) {
             var recipeCard = createRow(recipe);
-            targetContent.append(recipeCard);
+            mainContent.append(recipeCard);
         });
     };
 

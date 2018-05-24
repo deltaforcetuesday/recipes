@@ -1,95 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-      crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
 
 
-    <title>Chupper Time!</title>
+  <title>Chupper Time</title>
 
-  </head>
+</head>
 
-    <body>
-      <div id="nb">
-      <div id="head">
-        <h1>Chupper Time</h1>
-      </div>
+<body>
 
-      <nav class="navbar navbar-primary" id="navbar">
-        <div class="container-fluid" class="navbar-header">
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link" style="color:darkgreen" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color:darkgreen" href="/share">Share a Recipe</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color:darkgreen" href="/search">Search Recipes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color:darkgreen" href="/login">Login to Your Account</a>
-            </li>
-            <li class="nav-item">
-              <a class="quicksearch">
-                <form>
-                  <fieldset>
-                    <select id="quicksearch" name="quicksearch">
-                      <option value="---">Quick Search</option>
-                      <option value="short">0-15 Minutes Prep Time</option>
-                      <option value="medium">15-30 Minutes Prep Time</option>
-                      <option value="average">30-45 Minutes Prep Time</option>
-                      <option value="long">45-60 Minutes Prep Time</option>
-                      <option value="forever">60+ Minutes Prep Time</option>
-                    </select>
-                    <input type="submit" id="quicksearch">
-                    
-                  </fieldset>
-                </form>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <nav class="navbar navbar-expand-lg bg-light sticky-top">
+    <a class="navbar-brand" href="/">Chupper Time</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/share">Share
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search">Advanced Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button class="btn rounded yellow-outline my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
+  </nav>
+
+  <div class="container" id="main-content">
 
 
-    <div class="container" id="main-content" style="margin-top:230px">
-      <h1>Join us for Chupper</h1>
-      <br>
-      <h2>Please enter your username and password.</h2>
-      <h2>Only registered users can share recipies with the world.</h2>
-      <!-- Entry Form -->
-      <form  class="login"> 
-        <div class="form-group">
-          <label for="band-name-input">Username</label>
-          <input type="text" class="form-control" id="username-input" placeholder="What's your Chef Name?">
+    <div class="d-flex justify-content-center">
+      <form class="form-signin page-form bg-light" style="width: 18rem;">
+        <div class="text-center mb-4">
+          <h1 class="mb-3 font-weight-normal">
+            Sign in
+          </h1>
+          <h6>
+            Share your recipes with the world
+          </h6>
         </div>
         <div class="form-group">
-          <label for="location-input">Password</label>
+          <label for="username-input">Username</label>
+          <input type="text" class="form-control" id="username-input" placeholder="Chef Name">
+        </div>
+        <div class="form-group">
+          <label for="password-input">Password</label>
           <input type="password" class="form-control" id="password-input" placeholder="cremefraiche">
         </div>
-        <div class="form-group">
-          <btn class="btn btn-primary" id="loginBtn" type="submit">Login</btn>
+        <button class="btn btn-lg btn-block" type="submit" id="loginBtn">Sign in</button>
+        <div class="text-center">
+          <h6>or
+            <a href="/newuser">sign up</a>
+          </h6>
         </div>
       </form>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h3>If you have not joined us at the table yet, no worries! Just click
-        <a href="/newuser">here</a> to sign up for an account.</h3>
     </div>
 
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+  </div>
 
-  </body>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+
+</body>
+
 </html>

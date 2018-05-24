@@ -18,88 +18,62 @@
 </head>
 
 <body>
-  <div id="nb">
-  <div id="head">
-    <h1>Chupper Time</h1>
-  </div>
+  <nav class="navbar navbar-expand-lg bg-light sticky-top">
+    <a class="navbar-brand" href="/">Chupper Time</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <nav class="navbar navbar-primary" id="navbar">
-    <div class="container-fluid" class="navbar-header">
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" style="color:darkgreen" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color:darkgreen" href="/share">Share a Recipe</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color:darkgreen" href="/search">Search Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color:darkgreen" href="/login">Login to Your Account</a>
-        </li>
-        <li class="nav-item">
-          <a class="quicksearch">
-            <form>
-              <fieldset>
-                <select id="quicksearch" name="quicksearch">
-                  <option value="---">Quick Search</option>
-                  <option value="short">0-15 Minutes Prep Time</option>
-                  <option value="medium">15-30 Minutes Prep Time</option>
-                  <option value="average">30-45 Minutes Prep Time</option>
-                  <option value="long">45-60 Minutes Prep Time</option>
-                  <option value="forever">60+ Minutes Prep Time</option>
-                </select>
-                <input type="submit" id="quicksearchSubmit">
-              </fieldset>
-            </form>
+          <a class="nav-link" href="/share">Share
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search">Advanced Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
       </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+        <button class="btn rounded yellow-outline my-2 my-sm-0" type="submit" id="#press">Search</button>
+      </form>
     </div>
   </nav>
-</div>
-  <div class="container" id="main-content" style="margin-top:230px">
-    <h1>Join us for Chupper</h1>
-    <br>
-    <h2>Please fill in information requested below to create an account with Chupper Time. Only registered users can share recipes
-      with the world.</h2>
-    <!-- User Form Container -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
 
-          <div class="panel panel-primary">
-            <div class="panel-body">
+  <div class="container" id="main-content">
 
-              <!-- Entry Form -->
-              <form class="signup">
-                <div class="form-group">
-                  <label for="username-input">Username</label>
-                  <input class="form-control" id="username-input" type="text" placeholder="What's your Chef Name?">
-                </div>
-                <div class="form-group">
-                  <label for="password-input">Password (must be at least 4 characters)</label>
-                  <input class="form-control" id="password-input" type="password" placeholder="cremefraiche">
-                </div>
-                <div class="form-group">
-                  <label for="email-address">E-mail address</label>
-                  <input class="form-control" id="emailAddress" type="email" placeholder="MyName@email.com">
-                </div>
-                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                  <span class="sr-only">Error:</span>
-                  <span class="msg"></span>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" id="add-user-btn">Sign Up</button>
-              </form>
-            </div>
-          </div>
-        </div>
+
+    <form class="signup page-form bg-light">
+      <h1>Join us for Chupper</h1>
+      <br>
+      <h5>Create an account to share recipes with the world.</h5>
+      <div class="form-group">
+        <label for="username-input">Username</label>
+        <input class="form-control" id="username-input" type="text" placeholder="Chef Name">
       </div>
-    </div>
+      <div class="form-group">
+        <label for="password-input">Password (must be at least 4 characters)</label>
+        <input class="form-control" id="password-input" type="password" placeholder="cremefraiche">
+      </div>
+      <div class="form-group">
+        <label for="email-address">E-mail address</label>
+        <input class="form-control" id="emailAddress" type="email" placeholder="MyName@email.com">
+      </div>
+      <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <span class="msg"></span>
+      </div>
+
+      <button type="submit" class="btn" id="add-user-btn">Sign Up</button>
+    </form>
   </div>
+
 </body>
 
 </html>

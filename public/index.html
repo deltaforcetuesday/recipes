@@ -10,74 +10,63 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="./js/index.js"></script>
 
-    <title>Chupper Time!</title>
+    <title>Chupper Time</title>
 
 </head>
 
 <body>
-    <din id="nb">
-    <div id="head">
-        <h1>Chupper Time</h1>
+
+    <div id="nb">
+        <nav class="navbar navbar-expand-lg bg-light sticky-top">
+            <a class="navbar-brand" href="/">Chupper Time</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/share">Share
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/search">Advanced Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn rounded yellow-outline my-2 my-sm-0" type="submit" id="#press">Search</button>
+                </form>
+            </div>
+        </nav>
     </div>
 
-    <nav class="navbar navbar-primary" id="navbar">
-        <div class="container-fluid" class="navbar-header">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link" style="color:darkgreen" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"style="color:darkgreen" href="/share">Share a Recipe</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color:darkgreen" href="/search">Search Recipes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color:darkgreen" href="/login">Login to Your Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="quicksearch">
-                        <form>
-                            <fieldset>
-                                <select id="quicksearch" name="quicksearch">
-                                    <option value="--">Quick Search</option>
-                                    <option value="short">0-15 Minutes Prep Time</option>
-                                    <option value="medium">15-30 Minutes Prep Time</option>
-                                    <option value="average">30-45 Minutes Prep Time</option>
-                                    <option value="long">45-60 Minutes Prep Time</option>
-                                    <option value="forever">60+ Minutes Prep Time</option>
-                                </select>
-                                <input type="submit" id="quicksearch">
-                            </fieldset>
-                        </form>
-                    </a>
-                </li>
-            </ul>
+    <div id="target">
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="container">
+                <h1>Chup is up</h1>
+                <p class="lead">Easy recipes for every occassion!</p>
+                <div id="images">
+                    <img class="img-fluid" src="./assets/images/steaksalad.jpg" alt="Steak Salad">
+                    <img class="img-fluid" src="./assets/images/salmon.jpg" alt="Salmon">
+                    <img class="img-fluid" src="./assets/images/veggie.jpg" alt="Vegetarian Meal">
+                    <img class="img-fluid" src="./assets/images//veggie2.jpg" alt="Other Vegetarian Meal">
+                </div>
+            </div>
         </div>
-    </nav>
-</din>
-    <div class="container" id="main-content" style="margin-top:230px">
-            <h1> Thank you for visiting Chupper Time!</h1>
-            <br>
-            <h2>You can search for new, exciting recipes based on a number of different factors, including what you have on hand!</h2>
-            <br>
-            <h2>You will find a recipe for you no matter what your tastes! Don't forget to sign up for an account so you
-                can share your masterpieces with the world!</h2>
-            <br>
-            <div id="images">
-                <img src="./assets/images/steaksalad.jpg" alt="Steak Salad">
-                <img src="./assets/images/salmon.jpg" alt="Salmon">
-                <img src="./assets/images/veggie.jpg" alt="Vegetarian Meal">
-                <img src="./assets/images//veggie2.jpg" alt="Other Vegetarian Meal">
-            </div>
-        <div class="wrapper">
-            <div id="target">
+        <div class="container" id="main-content">
 
-            </div>
+
         </div>
     </div>
+
 </body>
 
 </html>

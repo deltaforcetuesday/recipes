@@ -1,163 +1,79 @@
-/* .card { 
-  display: inline-block;
-
-} */
-
 body {
-  width: auto;
-  height: auto;
-  /* background-color: rosybrown; */
+  font-family: 'Roboto', sans-serif;
+  background-color: #264653;
+}
+h5, h6, label {
+  color: #080367;
 }
 
-#head {
-  background-color: #C3D4BE;
-  color: darkgreen;
-  text-align: center;
-  width: 100%;
-  padding: 10px;
-  font-size: 15px;
-  height: 10%;
-  margin:10px auto;
+.btn {
+  outline: 1px solid;
+  outline-color: #ff9f1c;
+  color: #ff9f1c;
 }
 
-h3 {
-  font-size: 25px;
-  font-family: 'Yellowtail', cursive;
+.btn:hover {
+  color: #ffffff;
+  background-color: #ff9f1c;
 }
 
-h2 {
-  font-size: 30px;
+a, h4 {
+  color: #2a9daf;
+}
 
-  -webkit-text-fill-color:  rgb(18, 104, 145); /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  font-family: sans-serif;
 
-  /* font-family: 'Yellowtail', cursive; */
+a:hover {
+  color:#258b9b;
+}
+
+.navbar-brand {
+  color: #bf4342;
+  font-family: 'Yellowtail', cursive; 
+  font-size: 28px;
+  
+}
+
+.jumbotron {
+  color: #080367;
+  background-color: #ffffff;
 }
 
 h1 {
-  font-size: 60px;
-  -webkit-text-fill-color: darkgreen;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(122, 122, 122);
-  font-family: 'Yellowtail', cursive;
+  color: #bf4342;
+  font-family: 'Yellowtail', cursive; 
+  font-size: 72px;
 }
 
-#navbar,
-#quichsearchSubmit  {
-  background-color: #C3D4BE;
-  font-family: 'Yellowtail', cursive;
-  font-size: 22px;
-  height: 10%;
-  width: 100%;
-  margin: 0px auto;
-  color: darkgreen;
-}
-
-#nb{
-  overflow: hidden;
-  z-index: 1 !important;
-  position: fixed;
-}
 #main-content {
-  /* z-index: 2 !important; */
-  height: 80%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: #C3D4BE;
-  margin-top: 10px;
-  padding-top: 70px;
-  /* margin-top: 230px; */
+  margin-top: 50px;
 
 }
-.sticky{
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-.sticky + #main-content {
-  padding-top: 60px;
-}
-.navbar-primary{
-  color:darkgreen;
-}
- /* #main-content {
 
-  height: 80%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: #C3D4BE;
-  margin-top: 10px;
-  padding-top: 70px;
-
-}  */
-
-.wrapper {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: #C3D4BE;
-  padding: 10px;
-}
-
+/* **** home page */
 .hide {
   display: none;
 }
 
-.nav-item {
-  width: 300px;
-  text-align: center;
-  color:darkgreen;
-
+/* **** login page, share page, search page */
+.page-form {
+  background-color: #ffffff;
+  padding: 20px;
 }
 
-#quicksearch {
-  background-color: #C3D4BE;
-  font-family: 'Yellowtail', cursive;
-  color: darkgreen;
+/*share page*/
+
+#addIngredient {
+  outline: 1px solid;
+  outline-color: #bf4342;
+  color: #bf4342;
+
+}
+#addIngredient:hover {
+  color: #ffffff;
+  background-color: #bf4342;
 }
 
-#images {
-  text-align: center;
-}
-
-img
- {
-    width: auto; /*adjust this value to your needs */
-     max-width: 20%;
-    height: auto;
-    max-height: 20%;
-    display: inline-block;
-    margin: 10px;
- }
-
- #instruction-input {
-   height: 100px
- }
-
-#ingredient-input {
-  height: 100px;
+ img {
+  width: 200px;
+  height: auto;
 } 
-#recipeSubmit,
-#loginBtn,
-#add-user-btn,
-#advSearchBtn
-#quicksearchSubmit{
-  background-color: darkgreen;
-  color: white;
-  border-color: darkgreen;
-}
-#addIngredient{
-  background-color:white;
-  color: darkgreen;
-  border-color: darkgreen;
-  border-width: 2px;
-}
-#newUser{
-  background-color:#C3D4BE;
-  padding-right: 30px;
-  padding-left: 30px;
-}
